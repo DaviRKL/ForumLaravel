@@ -25,5 +25,5 @@ O projeto consiste em um fórum web onde os usuários podem se registrar, fazer 
 
 ## Instalação
 
-1. Clone este repositório: `git clone https://github.com/seu-usuario/seu-projeto.git`
+1. Clone este repositório: `git clone https://github.com/DaviRKL/ForumLaravel.git`
 2. Acesse o diretório do projeto: `cd seu-proj

@@ -17,15 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users/create', [UserController::class, 'createUser'])->name('creteUser');
+Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
+
+Route::get('/users/create', [UserController::class, 'createUser'])->name('createUser');
 
 Route::get('/users/id', [UserController::class, 'listUserById'])->name('listUserById');
 
-Route::get('/users/id/edit', [UserController::class, 'createUser'])->name('createUser');
+Route::get('/users/id/edit', [UserController::class, 'editUser'])->name('editUser');
 
-Route::get('/users/id/delete', [UserController::class, 'editUser'])->name('editUser');
+Route::get('/users/id/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
 
-Route::get('/login', [UserController::class, 'deleteUser'])->name('deleteUser');
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
-Route::get('/logout', [UserController::class, 'listAllUsers'])->name('listAllUsers');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 

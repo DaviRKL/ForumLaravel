@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container d-flex justify-content-center align-items-center flex-column" style="min-height: 100vh;">
-    <h2 class="text-center">Criar Usuário</h2>
+    <h2 class="text-center">Editar Usuário</h2>
     <form action="" method="POST" class="w-50">
         @csrf
         <div class="mb-3">

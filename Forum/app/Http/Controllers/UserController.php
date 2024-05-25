@@ -25,4 +25,11 @@ class UserController extends Controller
     public function deleteUser() {
         return "Hello World";
     }
+    public function login() {
+        return view('users.login');
+    }
+
+    public function logout() {
+        return "Hello World";
+    }
 }

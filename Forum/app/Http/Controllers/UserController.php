@@ -10,7 +10,7 @@ class UserController extends Controller
         return view('users.ListAllUsers');
     }
 
-    public function listUserById() {
+    public function listUserById(Request $request,$id) {
         return view('users.find');
     }
 
@@ -25,11 +25,5 @@ class UserController extends Controller
     public function deleteUser() {
         return "Hello World";
     }
-    public function login() {
-        return view('users.login');
-    }
-
-    public function logout() {
-        return "Hello World";
-    }
+    
 }

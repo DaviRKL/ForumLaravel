@@ -3,7 +3,7 @@
 @section('content')
 <div class="container d-flex justify-content-center align-items-center flex-column" style="min-height: 100vh;">
     <h2 class="text-center">Login</h2>
-    <form action="" method="POST" class="w-50">
+    <form action="{{ route('login')}}" method="POST" class="w-50">
         @csrf
         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
@@ -12,7 +12,7 @@
     
         <div class="mb-3">
             <label for="senha" class="form-label">Senha:</label>
-            <input type="password" id="senha" name="senha" class="form-control">
+            <input type="password" id="password" name="password" class="form-control">
         </div>
     
         <input type="submit" class="btn btn-primary" value="Enviar">

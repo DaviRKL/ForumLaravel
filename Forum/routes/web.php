@@ -14,21 +14,18 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
-
-Route::get('/users/create', [UserController::class, 'createUser'])->name('createUser');
-
-Route::get('/users/{id}', [UserController::class, 'listUserById'])->name('listUserById');
-
-Route::get('/users/id/edit', [UserController::class, 'editUser'])->name('editUser');
-
-Route::get('/users/id/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
-
 Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])->name('login');
+
+Route::match(['get', 'post'], '/register', [UserController::class, 'register'])->name('register');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
+
+    Route::get('/users/{id}', [UserController::class, 'listUserById'])->name('listUserById');
+
+    Route::get('/users/id/edit', [UserController::class, 'editUser'])->name('editUser');
+
+    Route::get('/users/id/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
+});

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -10,13 +11,22 @@ class AuthController extends Controller
         if ($request->method() === 'GET'){
             return view('auth.login');
         } else {
-            $credentials = $request->only('email', 'password');
-            print_r($credentials);
+            $credentials = $request->validate([
+                'email' => 'required|string|email|',
+                'password' => 'required|string'
+               ]);
+            if (Auth::attempt($credentials)){
+                return redirect()->route('listAllUsers');
+            }
+            return back()->withErrors([
+                'email' => 'Credenciais inválidas.',
+            ])->withInput();
         }
             
     }
 
     public function logout() {
-        return "Hello World";
+       Auth::logout();
+       return redirect()->route('login')->with('sucess', 'Logout realizado com sucesso');
     }
 }

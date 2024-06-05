@@ -37,10 +37,11 @@
                     <a class="active" href="{{ route('listAllUsers') }}">Início</a>
                 </div>
                 <div class="flex-column linha-sidebar">
-                    <a href="{{ route('createUser') }}">Criar Usuário</a>
+                    <a href="{{ route('register') }}">Criar Usuário</a>
                 </div>
                 <div class="flex-column linha-sidebar">
-                    <a href="{{ route('listUserById') }}">Consultar usuário</a>
+                    
+                    <a href="">Consultar usuário</a>
                 </div>
                 <div class="flex-column linha-sidebar">
                     <a href="{{ url('users/id/edit') }}">Editar Usuário</a>

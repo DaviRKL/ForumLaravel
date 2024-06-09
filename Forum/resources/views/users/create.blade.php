@@ -20,6 +20,7 @@
         <div class="mb-3">
             <label for="password" class="form-label">Senha:</label>
             <input type="password" id="password" name="password" class="form-control">
+            @error('password') <span>{{$message}}</span> @enderror
         </div>
     
         <input type="submit" class="btn btn-primary" value="Enviar">

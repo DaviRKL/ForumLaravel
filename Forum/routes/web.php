@@ -21,11 +21,14 @@ Route::match(['get', 'post'], '/register', [UserController::class, 'register'])-
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
 
     Route::get('/users/{id}', [UserController::class, 'listUserById'])->name('listUserById');
 
-    Route::get('/users/id/edit', [UserController::class, 'editUser'])->name('editUser');
+    Route::put('/users/{id}/update', [UserController::class, 'updateUser'])->name('updateUser');
 
-    Route::get('/users/id/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
+    Route::get('/users/{id}/edit', [UserController::class, 'editUser'])->name('editUser');
+
+    Route::get('/users/{id}/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
 });

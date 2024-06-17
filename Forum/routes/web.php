@@ -13,6 +13,7 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [AuthController::class, 'teste'])->name('teste');
 
 Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])->name('login');
 

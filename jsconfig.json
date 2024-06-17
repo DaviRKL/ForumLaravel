@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+      "baseUrl": "resources/js/components"
+    },
+    "include": ["resources/js/components"]
+}

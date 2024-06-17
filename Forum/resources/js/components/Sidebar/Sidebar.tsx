@@ -3,16 +3,14 @@ import { Container, Content } from './SidebarStyles'
 import { 
   FaTimes, 
   FaHome, 
-  FaEnvelope, 
   FaRegSun, 
   FaUserAlt, 
-  FaIdCardAlt, 
-  FaRegFileAlt,
-  FaRegCalendarAlt,
   FaChartBar
 } from 'react-icons/fa';
-
-import { SidebarItem, SidebarItem2 } from 'components/SidebarItem';
+import { BiLogIn, BiLogOut } from "react-icons/bi";
+import { BsFillPersonPlusFill } from "react-icons/bs";
+import { CgProfile } from "react-icons/cg";
+import SidebarItem from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
     isActive:boolean;
@@ -29,14 +27,12 @@ const Sidebar: React.FC<SidebarProps> = ({isActive, setActive}) => {
     <Container sidebar={isActive}>
       <FaTimes onClick={closeSidebar} />  
       <Content>
-        <SidebarItem Icon={FaHome} Text="Home" />
-        <SidebarItem Icon={FaChartBar} Text="Statistics" />
-        <SidebarItem Icon={FaUserAlt} Text="Users" />
-        <SidebarItem Icon={FaEnvelope} Text="Mail" />
-        <SidebarItem Icon={FaRegCalendarAlt} Text="Calendar" />
-        <SidebarItem Icon={FaIdCardAlt} Text="Employees" />
-        <SidebarItem Icon={FaRegFileAlt} Text="Reports" />
-        <SidebarItem Icon={FaRegSun} Text="Settings" />
+        <SidebarItem Icon={FaHome} Text="Início" href = "users" />
+        <SidebarItem Icon={BsFillPersonPlusFill} Text="Cadastre-se" href = "register" />
+        <SidebarItem Icon={CgProfile} Text="Perfil" href = "Users" />
+        <SidebarItem Icon={BiLogIn} Text="Logar" href = "Users" />
+        <SidebarItem Icon={BiLogOut} Text="Sair" href = "Users" />
+        <SidebarItem Icon={FaRegSun} Text="Configurações" href = "Users" />
       </Content>
     </Container>
   )

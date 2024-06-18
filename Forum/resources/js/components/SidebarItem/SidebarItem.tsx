@@ -1,28 +1,27 @@
 import React from 'react'
-import { Container } from './SidebarItem'
+import { Container } from './SidebarItemStyles'
 
 interface SidebarItemProps {
   Icon: React.ComponentType;
   Text: string;
+  href: string;
 }
 
-export const SidebarItem: React.FC<SidebarItemProps> = ({ Icon, Text }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ Icon, Text, href }) => {
+  
   return (
-    <Container>
+    <a href={href}>
+      <Container>
       <Icon />
       <span>{Text}</span>
     </Container>
+    </a>
+    
   );
 }
 
-export const SidebarItem2: React.FC<SidebarItemProps> = ({ Icon, Text }) => {
-  return (
-    <Container>
-      <Icon />
-      <span>{Text}</span>
-    </Container>
-  );
-}
+export default SidebarItem
+
 
  
 

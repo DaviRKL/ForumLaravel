@@ -12,9 +12,9 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ Icon, Text, href }) => {
   return (
     <a href={href}>
       <Container>
-      <Icon />
-      <span>{Text}</span>
-    </Container>
+        <Icon />
+        <span>{Text}</span>
+      </Container>
     </a>
     
   );

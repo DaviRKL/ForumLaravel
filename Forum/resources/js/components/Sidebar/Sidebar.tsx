@@ -8,7 +8,6 @@ import {
   FaChartBar
 } from 'react-icons/fa';
 
-import { SidebarItem, SidebarItem2 } from '../SidebarItem/SidebarItem';
 import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
@@ -40,4 +39,4 @@ const Sidebar: React.FC<SidebarProps> = ({isActive, setActive}) => {
   )
 }
 
-export default Sidebar
+export default Sidebar 

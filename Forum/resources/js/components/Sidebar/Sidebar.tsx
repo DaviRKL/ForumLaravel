@@ -12,7 +12,7 @@ import {
   FaChartBar
 } from 'react-icons/fa';
 
-import { SidebarItem, SidebarItem2 } from 'components/SidebarItem';
+import { SidebarItem, SidebarItem2 } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
     isActive:boolean;

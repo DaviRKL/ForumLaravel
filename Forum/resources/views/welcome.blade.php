@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -12,7 +13,8 @@
     <div id="app">
         <div id="sidebar" class="sidebar">
             <div class="sidebar-header">
-                <span id="close-btn">&times;</span>
+                <span class="menu-text">Menu</span>
+                <i class="fas fa-times" id="close-btn"></i>
             </div>
             <div class="sidebar-content">
                 <a href="users"><i class="fa fa-home"></i> Início</a>
@@ -23,8 +25,17 @@
                 <a href="settings"><i class="fa fa-cog"></i> Configurações</a>
             </div>
         </div>
-        <div id="menu">
-            <i class="fa fa-bars"></i>
+        <div class="navbar">
+            <i class="fa fa-bars" id="btn-navbar"></i>
+            <div class="titleWrapper">
+                <h1 class="Title">Forum</h1>
+            </div>
+            <a href='users/1'>
+                <i class="fas fa-user-circle"></i>
+            </a>
+            <a href='logout'>
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
         </div>
         <div class="content">
             <h1>AEEEEEEEE</h1>

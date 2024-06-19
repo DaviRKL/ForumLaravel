@@ -22,7 +22,7 @@ body, main {
     position: fixed;
     top: 0;
     left: -300px;
-    background-color: var(--masterball-purple-dark);
+    background: linear-gradient(to bottom,var(--masterball-purple-dark) ,var(--masterball-purple-light) );
     overflow-x: hidden;
     transition: left 0.5s;
     padding-top: 60px;

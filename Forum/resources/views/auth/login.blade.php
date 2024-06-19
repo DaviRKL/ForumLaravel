@@ -1,23 +1,25 @@
 @extends('layouts.header_footer')
 
 @section('content')
-<div class="container d-flex justify-content-center align-items-center flex-column" style="min-height: 100vh;">
-    <h2 class="text-center">Login</h2>
-    <form action="{{ route('login')}}" method="POST" class="w-50">
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+<div class="login-container">
+    
+    <form action="{{ route('login')}}" method="POST" class="login-form">
+        <h2 class="login-title">Bem vindo de volta!</h2>
         @csrf
-        <div class="mb-3">
+        <div class="form-group">
             <label for="email" class="form-label">Email:</label>
-            <input type="email" id="email" name="email" class="form-control"  value="{{ old('email') }}" required>
-            @error('email') <span>{{$message}}</span> @enderror
+            <input type="email" id="email" name="email" class="form-input" value="{{ old('email') }}" required>
+            @error('email') <span class="error-message">{{$message}}</span> @enderror
         </div>
     
-        <div class="mb-3">
+        <div class="form-group">
             <label for="password" class="form-label">Senha:</label>
-            <input type="password" id="password" name="password" class="form-control">
-            @error('email') <span>{{$message}}</span> @enderror
+            <input type="password" id="password" name="password" class="form-input">
+            @error('password') <span class="error-message">{{$message}}</span> @enderror
         </div>
     
-        <input type="submit" class="btn btn-primary" value="Enviar">
+        <input type="submit" class="submit-button" value="Enviar">
     </form>
 </div>
 @endsection

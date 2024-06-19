@@ -40,7 +40,7 @@
         <div class="navbar">
             <i class="fa fa-bars" id="btn-navbar"></i>
             <div class="titleWrapper">
-                <h1 class="Title">Forum</h1>
+                <h1 class="Title"><i class="far fa-dot-circle"></i> MasterForum</h1>
             </div>
             <a href='users/1'>
                 <i class="fas fa-user-circle"></i>

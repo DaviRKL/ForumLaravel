@@ -12,7 +12,9 @@
         <div class="text">
             <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum!</h1>
             <h2>O Mundo Pokémon está à sua espera!</h2>
-            <p>Explore o universo dos Pokémon no MasterForum, onde treinadores se encontram para compartilhar experiências, estratégias e notícias fresquinhas do mundo Pokémon. Seja você um novato ansioso para começar sua jornada ou um mestre experiente em busca de novos desafios, nosso fórum é o lugar ideal para trocar ideias, batalhar virtualmente e descobrir tudo o que há para saber sobre os adoráveis e poderosos Pokémon.</p>
+            <p>Explore o universo dos Pokémon no MasterForum, onde treinadores se encontram para compartilhar experiências, estratégias e notícias fresquinhas do mundo Pokémon.
+                Seja você um novato ansioso para começar sua jornada ou um mestre experiente em busca de novos desafios, nosso fórum é o lugar ideal para trocar ideias, 
+                batalhar virtualmente e descobrir tudo o que há para saber sobre os adoráveis e poderosos Pokémon.</p>
         </div>
         <div class="image">
             <img src="{{ asset('images/pokemon-anime-ash-amigos-alola.png') }}" alt="Pokémon">
@@ -26,8 +28,10 @@
         </div>
         <div class="text">
             <h1 class="TituloWelcome">Debata sobre todas gerações!</h1>
-            <h2>O Mundo Pokémon está à sua espera!</h2>
-            <p>Explore o universo dos Pokémon no MasterForum, onde treinadores se encontram para compartilhar experiências, estratégias e notícias fresquinhas do mundo Pokémon. Seja você um novato ansioso para começar sua jornada ou um mestre experiente em busca de novos desafios, nosso fórum é o lugar ideal para trocar ideias, batalhar virtualmente e descobrir tudo o que há para saber sobre os adoráveis e poderosos Pokémon.</p>
+            <p>Desde sua estreia em 1996, Pokémon cativou fãs ao redor do mundo com suas diversas gerações, cada uma introduzindo novos Pokémon, regiões e aventuras. 
+                No MasterForum, você pode explorar todas as gerações de Pokémon, desde Kanto até Galar, e compartilhar suas experiências e estratégias com outros treinadores.
+                No MasterForum, você pode discutir tudo isso e muito mais! Quer compartilhar sua experiência na Liga Pokémon, discutir as estratégias mais eficientes, 
+                ou simplesmente relembrar suas aventuras favoritas? Este é o lugar certo para você. Junte-se a nós e mergulhe fundo no incrível mundo das gerações de Pokémon!</p>
         </div>
     </div>
     
@@ -81,11 +85,12 @@
         </div>
         <div class="slider-scrollbar">
             <div class="scrollbar-track">
-                <div class="scrollbar-thumb">
-
-                </div>
+                <div class="scrollbar-thumb"></div>
             </div>
         </div>
+    </div>
+    <div class=".ContainerPost">
+
     </div>
 </div>
 

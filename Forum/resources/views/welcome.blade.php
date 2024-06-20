@@ -2,42 +2,82 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
 <script src="{{ asset('js/carrosel.js') }}" defer></script>
 <div class="container">
-    <div class="Titulo">
-        <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum</h1>
-    </div>
+    {{-- <div class="Titulo">
+        <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum!</h1>
+    </div> --}}
     <div class="containerWelcome">
         <div class="text">
-            <h2 class="TituloWelcome">O Mundo Pokémon está à sua espera!</h2>
-            <p>
-            Explore o universo dos Pokémon no MasterForum, onde treinadores se encontram para 
-            compartilhar experiências, estratégias e notícias fresquinhas do mundo Pokémon. 
-            Seja você um novato ansioso para começar sua jornada ou um mestre experiente em 
-            busca de novos desafios, nosso fórum é o lugar ideal para trocar ideias, batalhar 
-            virtualmente e descobrir tudo o que há para saber sobre os adoráveis e poderosos Pokémon.
-            </p>
+            <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum!</h1>
+            <h2>O Mundo Pokémon está à sua espera!</h2>
+            <p>Explore o universo dos Pokémon no MasterForum, onde treinadores se encontram para compartilhar experiências, estratégias e notícias fresquinhas do mundo Pokémon. Seja você um novato ansioso para começar sua jornada ou um mestre experiente em busca de novos desafios, nosso fórum é o lugar ideal para trocar ideias, batalhar virtualmente e descobrir tudo o que há para saber sobre os adoráveis e poderosos Pokémon.</p>
         </div>
         <div class="image">
-            <img style="width: 100%; height: 210px;" src="{{ asset('images/masterIcon.png') }}">
+            <img src="{{ asset('images/pokemon-anime-ash-amigos-alola.png') }}" alt="Pokémon">
         </div>
     </div>
+
+    <div class="containerWelcome">
+        
+        <div class="image">
+            <img src="{{ asset('images/pokemonAnos.jpg') }}" alt="Pokémon">
+        </div>
+        <div class="text">
+            <h1 class="TituloWelcome">Debata sobre todas gerações!</h1>
+            <h2>O Mundo Pokémon está à sua espera!</h2>
+            <p>Explore o universo dos Pokémon no MasterForum, onde treinadores se encontram para compartilhar experiências, estratégias e notícias fresquinhas do mundo Pokémon. Seja você um novato ansioso para começar sua jornada ou um mestre experiente em busca de novos desafios, nosso fórum é o lugar ideal para trocar ideias, batalhar virtualmente e descobrir tudo o que há para saber sobre os adoráveis e poderosos Pokémon.</p>
+        </div>
+    </div>
+    
     <div class="ContainerCarrosel">
+        <h2 class="TituloWelcome">Conheça nossos Tópicos!</h2>
         <div class="slider-wrapper">
-            <button id="prev-slide" class="slide-button material-symbols-rounded"></button>
+            <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
             <div class="image-list">
-                <img src="{{ asset('images/masterIcon.png') }}" alt="img-1" class="image-item">
-                <img src="{{ asset('images/masterIcon.png') }}" alt="img-2" class="image-item">
-                <img src="{{ asset('images/masterIcon.png') }}" alt="img-3" class="image-item">
-                <img src="{{ asset('images/masterIcon.png') }}" alt="img-4" class="image-item">
-                <img src="{{ asset('images/masterIcon.png') }}" alt="img-5" class="image-item">
-                <img src="{{ asset('images/masterIcon.png') }}" alt="img-6" class="image-item">
-                <img src="{{ asset('images/masterIcon.png') }}" alt="img-7" class="image-item">
-                <img src="{{ asset('images/masterIcon.png') }}" alt="img-8" class="image-item">
-                <img src="{{ asset('images/masterIcon.png') }}" alt="img-9" class="image-item">
-                <img src="{{ asset('images/masterIcon.png') }}" alt="img-10" class="image-item">
+                <div class="image-item">
+                    <img src="{{ asset('images/masterIcon.png') }}" alt="img-1">
+                    <p class="image-text">Tópico 1</p>
+                </div>
+                <div class="image-item">
+                    <img src="{{ asset('images/masterIcon.png') }}" alt="img-2">
+                    <p class="image-text">Tópico 2</p>
+                </div>
+                <div class="image-item">
+                    <img src="{{ asset('images/masterIcon.png') }}" alt="img-3">
+                    <p class="image-text">Tópico 3</p>
+                </div>
+                <div class="image-item">
+                    <img src="{{ asset('images/masterIcon.png') }}" alt="img-4">
+                    <p class="image-text">Tópico 4</p>
+                </div>
+                <div class="image-item">
+                    <img src="{{ asset('images/masterIcon.png') }}" alt="img-5">
+                    <p class="image-text">Tópico 5</p>
+                </div>
+                <div class="image-item">
+                    <img src="{{ asset('images/masterIcon.png') }}"  alt="img-6">
+                    <p class="image-text">Tópico 6</p>
+                </div>
+                <div class="image-item">
+                    <img src="{{ asset('images/masterIcon.png') }}" alt="img-7">
+                    <p class="image-text">Tópico 7</p>
+                </div>
+                <div class="image-item">
+                    <img src="{{ asset('images/masterIcon.png') }}" alt="img-8">
+                    <p class="image-text">Tópico 8</p>
+                </div>
+                <div class="image-item">
+                    <img src="{{ asset('images/masterIcon.png') }}" alt="img-9">
+                    <p class="image-text">Tópico 9</p>
+                </div>
+                <div class="image-item">
+                    <img src="{{ asset('images/masterIcon.png') }}" alt="img-10">
+                    <p class="image-text">Tópico 10</p>
+                </div>
             </div>
-            <button id="next-slide" class="slide-button material-symbols-rounded"></button>
+            <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
         </div>
         <div class="slider-scrollbar">
             <div class="scrollbar-track">

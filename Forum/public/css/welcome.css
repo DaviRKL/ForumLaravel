@@ -92,7 +92,7 @@
 
 .slider-wrapper .image-list .image-item {
     width: 325px;
-    height: 400px;
+    height: 180px;
     object-fit: cover;
     display: flex;
     flex-direction: column;
@@ -100,8 +100,8 @@
 }
 
 .slider-wrapper .image-list .image-item img {
-    width: 325px;
-    height: 400px;
+    width: 225px;
+    height: 150px;
 }
 
 .slider-wrapper .image-list .image-item .image-text {

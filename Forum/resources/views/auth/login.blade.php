@@ -3,7 +3,6 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <div class="login-container">
-    
     <form action="{{ route('login')}}" method="POST" class="login-form">
         <h2 class="login-title">Bem vindo de volta!</h2>
         @csrf

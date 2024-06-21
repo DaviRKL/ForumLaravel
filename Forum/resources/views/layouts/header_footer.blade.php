@@ -8,6 +8,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="icon" href="{{ asset('images/masterIcon.ico') }}" type="image/x-icon">
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" href="{{ asset('css/listAllUsers.css') }}">
 <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/all.min.css') }}">
 <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 <script src="{{ asset('js/sidebar.js') }}" defer></script>

@@ -4,14 +4,23 @@
 <head>
     <meta charset="utf-8" />
 </head>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="icon" href="{{ asset('images/masterIcon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('images/masterIcon.ico') }}" type="image/x-icon">
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <link rel="stylesheet" href="{{ asset('css/listAllUsers.css') }}">
 <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/all.min.css') }}">
 <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 <script src="{{ asset('js/sidebar.js') }}" defer></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+    integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>
@@ -22,8 +31,25 @@
 </head>
 
 <body>
-    
+
     <div id="app">
+        <div class="navbar">
+            <i class="fa fa-bars" id="btn-navbar"></i>
+            <div class="titleWrapper">
+                <h1 class="Title"><img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">MasterForum</h1>
+            </div>
+            @if (Auth::check())
+                <a href='{{ route('listUserById', [Auth::user()->id]) }}'>
+                    <i class="fas fa-user-circle"></i>
+                </a>
+                <a href='logout'>
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            @else
+                <a class="navbar-link" href="register">Cadastre-se</a>
+                <a class="navbar-link" href="login">Entrar</a>
+            @endif
+        </div>
         <div id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <span class="menu-text">Menu</span>
@@ -31,27 +57,19 @@
             </div>
             <div class="sidebar-content">
                 <a href="users"><i class="fa fa-home"></i> Início</a>
-                <a href="register"><i class="fa fa-user-plus"></i> Cadastre-se</a>
-                <a href="users"><i class="fa fa-user"></i> Perfil</a>
-                <a href="login"><i class="fa fa-sign-in"></i> Logar</a>
+                <a href="register"><i class="fa-solid fa-users"></i> Lista de usuários</a>
+                <a data-bs-toggle="collapse" href="#collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i> Topicos</a>
+                <a class="collapse" id="collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i> Ver Topicos</a>
+                <a class="collapse" id="collapseTopicos"><i class="fa-solid fa-plus"></i> Criar Topicos</a>
+                <a href="#collapsePost" data-bs-toggle="collapse"><i class="fa-solid fa-comments"></i> Posts</a>
+                <a class="collapse" id="collapsePost"><i class="fa-solid fa-comments"></i> Ver Post</a>
+                <a class="collapse" id="collapsePost"><i class="fa-solid fa-plus"></i> Criar Posts</a>
                 <a href="logout"><i class="fa fa-sign-out"></i> Sair</a>
                 <a href="settings"><i class="fa fa-cog"></i> Configurações</a>
             </div>
         </div>
-        <div class="navbar">
-            <i class="fa fa-bars" id="btn-navbar"></i>
-            <div class="titleWrapper">
-                <h1 class="Title"><i class="far fa-dot-circle"></i> MasterForum</h1>
-            </div>
-            <a href='users/1'>
-                <i class="fas fa-user-circle"></i>
-            </a>
-            <a href='logout'>
-                <i class="fas fa-sign-out-alt"></i>
-            </a>
-        </div>
     </div>
-    
+
     <main>
         @yield('content')
     </main>
@@ -60,7 +78,8 @@
         <div class="container">
             <ul class="list-inline">
                 <li class="list-inline-item">
-                    <a href="https://www.linkedin.com/in/davi-ryan-konuma-lima-62b00221b/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/davi-ryan-konuma-lima-62b00221b/" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-linkedin"></i>
                     </a>
                 </li>
@@ -82,4 +101,3 @@
 </body>
 
 </html>
-

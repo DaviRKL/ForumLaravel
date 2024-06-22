@@ -15,6 +15,36 @@ body, main {
     
 }
 
+.fas:hover, .fa:hover, .NavbarIcon:hover{
+    transform: scale(1.05); 
+}
+.NavbarIcon:hover{
+    transform: rotate(-360deg);
+    transition-duration: 1s;
+}
+
+.navbar-link{
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+
+}
+
+#collapseTopicos, #collapsePost{
+    margin-left: 40px;
+    width: calc(100% - 25px);
+}
+.navbar-link:hover{
+    color: #fff;
+    transform: scale(1.1);
+    background-color: #9B6BCC;
+    border-radius: 10px;
+}
+
+.NavbarIcon{
+    height: 60PX;
+}
+
 .sidebar {
     display: flex;
     height: 100%;

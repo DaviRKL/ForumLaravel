@@ -5,11 +5,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
 <script src="{{ asset('js/carrosel.js') }}" defer></script>
 <div class="container">
-    {{-- <div class="Titulo">
-        <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum!</h1>
-    </div> --}}
+    @if (Auth::check())
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    toastr.success("Bem vindo {{ Auth::user()->name }}!");
+                    timeOut: 4000
+                });
+            </script>
+        @endif
     <div class="containerWelcome">
         <div class="text">
+            {{-- <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum @if (Auth::check()){{ Auth::user()->name }} @endif!</h1> --}}
             <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum!</h1>
             <h2>O Mundo Pokémon está à sua espera!</h2>
             <p>Explore o universo dos Pokémon no MasterForum, onde treinadores se encontram para compartilhar experiências, estratégias e notícias fresquinhas do mundo Pokémon.

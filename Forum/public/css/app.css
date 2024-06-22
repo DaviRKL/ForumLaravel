@@ -1,4 +1,11 @@
 /* public/css/sidebar.css */
+@import url('createPost.css');
+@import url('listAllUsers.css');
+@import url('login.css');
+@import url('sidebar.css');
+@import url('signIn.css');
+@import url('welcome.css');
+@import url('allPosts.css');
 body {
   font-family: 'Nunito', sans-serif;
   margin: 0;

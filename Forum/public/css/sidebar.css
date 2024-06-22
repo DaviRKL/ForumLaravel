@@ -5,6 +5,10 @@
     --masterball-black: #000000;
 }
 
+h4{
+    color: var(--masterball-white);
+    padding-bottom: 15px;
+}
 
 body, main {
     font-family: 'Nunito', sans-serif;
@@ -16,7 +20,9 @@ body, main {
 }
 
 .fas:hover, .fa:hover, .NavbarIcon:hover{
-    transform: scale(1.05); 
+   
+    transform: scale(1.1);
+    
 }
 .NavbarIcon:hover{
     transform: rotate(-360deg);
@@ -29,8 +35,21 @@ body, main {
     padding: 5px;
 
 }
+.sidebar-content .sidebar-user{
+    display: none;
+}
 
-#collapseTopicos, #collapsePost{
+@media (max-width: 1023px){
+    .navbar-link, .nav-icon{
+        display: none;
+    }
+
+    .sidebar-content .sidebar-user{
+        display: block;
+    }
+}
+
+#collapseTopicos, #collapsePost, #collapseTag{
     margin-left: 40px;
     width: calc(100% - 25px);
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,4 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/users/{id}/update', [UserController::class, 'updateUser'])->name('updateUser');
 
     Route::get('/users/{id}/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
+
+    Route::match(['get', 'post'], '/createPost', [PostController::class, 'createPost'])->name('createPost');
+
+    Route::get('/Posts', [PostController::class, 'listAllPosts'])->name('listAllPosts');
 });

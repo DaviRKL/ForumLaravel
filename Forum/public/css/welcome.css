@@ -228,10 +228,11 @@
     .slider-wrapper .image-list .image-item{
         display: inline-block;
         text-align: center;
-        width: 280px;
-        height: 380px;
+        width: 225px;
+        height: 80px;
     }
 
+   
     .slider-scrollbar .scrollbar-thumb {
         width: 20%;
     }

@@ -33,6 +33,7 @@
 }
 .card{
     border: none;
+    margin-bottom: 50px;
 }
 
 .card-title, .btn-close{

@@ -27,17 +27,38 @@
 <body>
 
     <div id="app">
+        @if (Session::has('message-sucess'))
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    toastr.success("{{ session('message-sucess') }}");
+                    timeOut: 4000
+                });
+            </script>
+        @elseif (Session::has('message-error'))
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    toastr.success("{{ session('message-error') }}");
+
+                    timeOut: 4000
+                });
+            </script>
+        @endif
         <div class="navbar">
             <i class="fa fa-bars" id="btn-navbar"></i>
             <div class="titleWrapper">
-                <a href="{{ route('teste') }}"><h1 class="Title"><img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">MasterForum</h1></a>
+                <a href="{{ route('teste') }}">
+                    <h1 class="Title"><img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">MasterForum
+                    </h1>
+                </a>
             </div>
             @if (Auth::check())
-                <a href='{{ route('listUserById', [Auth::user()->id]) }}' class="nav-icon">
+                <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="nav-icon">
                     <i class="fas fa-user-circle"></i>
+                    <p>Meu perfil</p>
                 </a>
-                <a href='logout' class="nav-icon">
+                <a href="logout" class="nav-icon">
                     <i class="fas fa-sign-out-alt"></i>
+                    <p>Sair</p>
                 </a>
             @else
                 <a class="navbar-link" href="register">Cadastre-se</a>
@@ -54,7 +75,8 @@
                 <a href="{{ route('listAllUsers') }}"><i class="fa-solid fa-users"></i> Lista de usuários</a>
 
                 <a href="#collapsePost" data-bs-toggle="collapse"><i class="fa-solid fa-comments"></i> Posts</a>
-                <a class="collapse" id="collapsePost" href="{{ route('listAllPosts') }}"><i class="fa-solid fa-comments"></i> Ver Post</a>
+                <a class="collapse" id="collapsePost" href="{{ route('listAllPosts') }}"><i
+                        class="fa-solid fa-comments"></i> Ver Post</a>
                 <a class="collapse" id="collapsePost" href="{{ route('createPost') }}"><i class="fa-solid fa-plus"></i>
                     Criar Posts</a>
 
@@ -68,16 +90,17 @@
                 <a class="collapse" id="collapseTag"><i class="fa-solid fa-plus"></i> Criar Tags</a>
 
                 @if (Auth::check())
-                    <a href='{{ route('listUserById', [Auth::user()->id]) }}' class="sidebar-user"><i class="fa-solid fa-id-card"></i>
+                    <a href='{{ route('listUserById', [Auth::user()->id]) }}' class="sidebar-user"><i
+                            class="fa-solid fa-id-card"></i>
                         Meu Perfil
                     </a>
-                    <a href='logout'  class="sidebar-user">
-                       
+                    <a href='logout' class="sidebar-user">
+
                         <i class="fa-solid fa-right-from-bracket"></i> Sair
                     </a>
                 @else
-                    <a  class="sidebar-user" href="register">Cadastre-se</a>
-                    <a  class="sidebar-user"href="login">Entrar</a>
+                    <a class="sidebar-user" href="register">Cadastre-se</a>
+                    <a class="sidebar-user"href="login">Entrar</a>
                 @endif
 
                 <a href="settings"><i class="fa fa-cog"></i> Configurações</a>

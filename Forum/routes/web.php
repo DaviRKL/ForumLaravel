@@ -32,6 +32,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/users/{id}/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
 
+    Route::get('/Posts/{id}', [PostController::class, 'listPostById'])->name('listPostById');
+
+    Route::put('/Posts/{id}/update', [PostController::class, 'updatePost'])->name('updatePost');
+
+    Route::get('/Posts/{id}/delete', [PostController::class, 'deletePost'])->name('deletePost');
+
     Route::match(['get', 'post'], '/createPost', [PostController::class, 'createPost'])->name('createPost');
 
     Route::get('/Posts', [PostController::class, 'listAllPosts'])->name('listAllPosts');

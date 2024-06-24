@@ -2,17 +2,7 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
-    <div class="profile-container">
-        @if (Session::has('message'))
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    toastr.success("{{ session('message') }}");
-                    timeOut: 4000
-                });
-            </script>
-        @endif
-
-        
+    <div class="profile-container"> 
         @if ($user != null)
             <form action="{{ route('updateUser', [$user->id]) }}" method="POST" class="profile-form">
                 {{-- @if (Session::has('message'))

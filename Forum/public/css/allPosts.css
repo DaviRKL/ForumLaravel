@@ -47,7 +47,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   margin-bottom: 600px;
+   margin-bottom: 100px;
 }
 
 
@@ -64,6 +64,7 @@
 
 .titlePost h1{
     padding: 2rem;
+    width: 100%;
     border-radius: 10px;
     color: #fff;
     padding-left: 100px;
@@ -90,9 +91,12 @@
     background: linear-gradient(to bottom,var(--masterball-purple-dark) ,var(--masterball-purple-light) );
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    margin-bottom: 60px;
 }
 
+
 .login-title {
+    
     color: #FFF;
     margin-bottom: 1.5rem;
 }

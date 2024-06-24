@@ -6,16 +6,7 @@
     <script src="{{ asset('js/carrosel.js') }}" defer></script>
     <div class="container">
         
-            @if (Session::has('message'))
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        toastr.success("{{ session('message') }}");
-                        timeOut: 4000
-                    });
-                </script>
-            @endif
-        
-        <div class="containerWelcome">
+        <div class="container containerWelcome">
             <div class="text">
                 {{-- <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum @if (Auth::check()){{ Auth::user()->name }} @endif!</h1> --}}
                 <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum!</h1>

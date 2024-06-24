@@ -51,7 +51,7 @@ public function register(Request $request) {
             $user->password = Hash::make($request->password);
         }
         $user->save();
-        return redirect()->route('listUserById', [$user->id])->with('message', 'Alteração realizada com sucesso');
+        return redirect()->route('listUserById', [$user->id])->with('message-sucess', 'Alteração realizada com sucesso');
     }
 
     public function deleteUser(Request $request, $id) {

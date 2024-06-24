@@ -30,7 +30,7 @@
         <div class="navbar">
             <i class="fa fa-bars" id="btn-navbar"></i>
             <div class="titleWrapper">
-                <h1 class="Title"><img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">MasterForum</h1>
+                <a href="{{ route('teste') }}"><h1 class="Title"><img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">MasterForum</h1></a>
             </div>
             @if (Auth::check())
                 <a href='{{ route('listUserById', [Auth::user()->id]) }}' class="nav-icon">

@@ -5,14 +5,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
     <script src="{{ asset('js/carrosel.js') }}" defer></script>
     <div class="container">
-        @if (Auth::check())
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    toastr.success("Bem vindo {{ Auth::user()->name }}!");
-                    timeOut: 4000
-                });
-            </script>
-        @endif
+        
+            @if (Session::has('message'))
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        toastr.success("{{ session('message') }}");
+                        timeOut: 4000
+                    });
+                </script>
+            @endif
+        
         <div class="containerWelcome">
             <div class="text">
                 {{-- <h1 class="TituloWelcome">Seja Bem vindo ao MasterForum @if (Auth::check()){{ Auth::user()->name }} @endif!</h1> --}}
@@ -119,7 +121,7 @@
                 <p> O trailer também indica que Pokémon Legends Z-A marcará o retorno das Mega Evoluções.
                 </p>
             </div>
-            
+
         </div>
 
     </div>

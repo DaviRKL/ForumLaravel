@@ -23,3 +23,7 @@ body {
   cursor: pointer;
   background-color: #1A202C; /* Cor de fundo para o menu onde está o ícone do menu hamburguer */
 }
+
+a{
+  text-decoration: none;
+}

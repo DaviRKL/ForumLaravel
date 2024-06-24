@@ -11,4 +11,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     closeBtn.addEventListener('click', () => {
         sidebar.classList.remove('open');
     });
+
+    // function pageReload() {
+    //     location.reload()
+    // }
 });

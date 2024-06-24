@@ -1,11 +1,10 @@
 @extends('layouts.header_footer')
 
 @section('content')
-<div class="titlePost"><h1 class="TituloWelcome">Posts</h1></div>
+<div class="titlePost"><h1>Posts</h1></div>
     <div class="containerAllPosts">
         <div class="user-list">    
                 <div class="textPost">
-                    
                     <h2>Pokémon Legends Z-A!</h2>
                     <h4>Por: Josias Johnson</h4>
                     <p>A Pokémon Company anunciou Pokémon Legends Z-A, uma sequência do popular Pokémon Legends Arceus lançado

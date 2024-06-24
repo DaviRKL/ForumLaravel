@@ -52,13 +52,14 @@
                 </a>
             </div>
             @if (Auth::check())
-                <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="nav-icon">
-                    <i class="fas fa-user-circle"></i>
-                    <p>Meu perfil</p>
+                <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="nav-icon">          
+                        <i class="fas fa-user-circle"></i>
+                        <!-- <p>Meu perfil</p> -->
                 </a>
+                
                 <a href="logout" class="nav-icon">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <p>Sair</p>
+                        <i class="fas fa-sign-out-alt"></i>
+                        <!-- <p>Sair</p> -->
                 </a>
             @else
                 <a class="navbar-link" href="register">Cadastre-se</a>
@@ -82,20 +83,19 @@
 
                 <a data-bs-toggle="collapse" href="#collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i>
                     Topicos</a>
-                <a class="collapse" id="collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i> Ver Topicos</a>
-                <a class="collapse" id="collapseTopicos"><i class="fa-solid fa-plus"></i> Criar Topicos</a>
+                <a class="collapse" id="collapseTopicos" href="{{route('listAllTopics')}}"><i class="fa-solid fa-arrow-trend-up"></i> Ver Topicos</a>
+                <a class="collapse" id="collapseTopicos" href="{{route('createTopic')}}"><i class="fa-solid fa-plus"></i> Criar Topicos</a>
 
                 <a href="#collapseTag" data-bs-toggle="collapse"><i class="fa-solid fa-hashtag"></i> Tags</a>
                 <a class="collapse" id="collapseTag"><i class="fa-solid fa-hashtag"></i> Ver Tags</a>
                 <a class="collapse" id="collapseTag"><i class="fa-solid fa-plus"></i> Criar Tags</a>
 
                 @if (Auth::check())
-                    <a href='{{ route('listUserById', [Auth::user()->id]) }}' class="sidebar-user"><i
+                    <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="sidebar-user"><i
                             class="fa-solid fa-id-card"></i>
                         Meu Perfil
                     </a>
-                    <a href='logout' class="sidebar-user">
-
+                    <a href="{{route('logout')}}" class="sidebar-user">
                         <i class="fa-solid fa-right-from-bracket"></i> Sair
                     </a>
                 @else

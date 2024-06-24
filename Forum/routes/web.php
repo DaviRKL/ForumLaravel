@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TopicController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +31,9 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/users/{id}/update', [UserController::class, 'updateUser'])->name('updateUser');
 
-    Route::get('/users/{id}/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
+    Route::delete('/users/{id}/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
+
+    Route::get('/Posts', [PostController::class, 'listAllPosts'])->name('listAllPosts');
 
     Route::get('/Posts/{id}', [PostController::class, 'listPostById'])->name('listPostById');
 
@@ -40,5 +43,13 @@ Route::middleware('auth')->group(function () {
 
     Route::match(['get', 'post'], '/createPost', [PostController::class, 'createPost'])->name('createPost');
 
-    Route::get('/Posts', [PostController::class, 'listAllPosts'])->name('listAllPosts');
+    Route::get('/Topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
+
+    Route::get('/Topics/{id}', [TopicController::class, 'listTopicById'])->name('listTopicById');
+
+    Route::put('/Topics/{id}/update', [TopicController::class, 'updateTopic'])->name('updateTopic');
+
+    Route::get('/Topics/{id}/delete', [TopicController::class, 'deleteTopic'])->name('deleteTopic');
+
+    Route::match(['get', 'post'], '/createTopic', [TopicController::class, 'createTopic'])->name('createTopic');
 });

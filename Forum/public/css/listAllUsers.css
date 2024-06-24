@@ -6,9 +6,11 @@
 .card, .card-body{
     background-color: var(--masterball-purple-light);
     border-radius: 10px;
-    width: 400px;
+    width: 250px;
     height: 150px;
 }
+
+.card{margin-right: 150px;}
 
 
 .modal-content{

@@ -3,12 +3,7 @@
     --masterball-purple-light: #9B6BCC;
 }
 
-.card, .card-body{
-    background-color: var(--masterball-purple-light);
-    border-radius: 10px;
-    width: 400px;
-    height: 150px;
-}
+
 
 
 .modal-content{

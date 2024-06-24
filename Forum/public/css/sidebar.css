@@ -4,7 +4,6 @@
     --masterball-white: #FFFFFF;
     --masterball-black: #000000;
 }
-
 h4{
     color: var(--masterball-white);
     padding-bottom: 15px;
@@ -39,18 +38,31 @@ body, main {
     display: none;
 }
 
-.navbar .nav-icon {
+
+.navbar > .nav-icon {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    margin: 0 10px; 
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px; 
 }
 
+.navbar .nav-icon .a-icons i {
+    font-size: 30px;
+}
+
+.a-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
 
 .navbar .nav-icon p {
     margin-top: 60px;
     font-size: 12px; 
-    margin-right: 20px;
+  
 }
 
 

@@ -6,6 +6,7 @@
 @import url('signIn.css');
 @import url('welcome.css');
 @import url('allPosts.css');
+@import url('allTopics.css');
 body {
   font-family: 'Nunito', sans-serif;
   margin: 0;

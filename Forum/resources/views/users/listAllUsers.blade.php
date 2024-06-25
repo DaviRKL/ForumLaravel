@@ -4,21 +4,29 @@
     <div class="containerAllUsers">
         <div class="user-list">
             <h2>Lista de Usuários</h2>
-            <div class="row">
-                @foreach ($users as $user)
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $user->name }}</h5>
-                                <p class="card-text">{{ $user->email }}</p>
-                                <a class="btn btn-edit"><i class="fa-solid fa-head-side-cough-slash"></i>Suspender</a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                <a class="btn btn-edit"><i class="fa-solid fa-head-side-cough-slash"></i> Suspender</a>
                                 <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i
                                         class="fa-solid fa-user-slash"></i> Banir</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
         </div>
         <div class="modal fade" id="banModal" tabindex="-1" aria-labelledby="banModalLabel" aria-hidden="true">
             <div class="modal-dialog">

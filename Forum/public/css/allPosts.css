@@ -15,7 +15,7 @@
 
 .fas:hover{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+} 
 
 .btn-edit, .btn-cancel{
     background-color:  #6B46C1; 
@@ -24,13 +24,6 @@
 
 .btn-edit:hover, .btn-cancel:hover{
     background-color: var(--masterball-purple-dark);
-    color: #FFF;
-}
-.card{
-    border: none;
-}
-
-.card-title, .btn-close{
     color: #FFF;
 }
 

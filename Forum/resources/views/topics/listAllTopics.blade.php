@@ -3,57 +3,45 @@
     <div class="containerAllUsers">
         <div class="user-list">
             <h2>Lista de Tópicos</h2>
-            <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                 <h5 class="card-title">Topico #1</h5> 
-                                <p class="card-text">111111</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                 <h5 class="card-title">Topico #1</h5> 
-                                <p class="card-text">111111</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                 <h5 class="card-title">Topico #1</h5> 
-                                <p class="card-text">111111</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                 <h5 class="card-title">Topico #1</h5> 
-                                <p class="card-text">111111</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                 <h5 class="card-title">Topico #1</h5> 
-                                <p class="card-text">111111</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-body">
-                                 <h5 class="card-title">Topico #1</h5> 
-                                <p class="card-text">111111</p>
-                            </div>
-                        </div>
-                    </div>
-               
+            <div class="table-topics-container">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Título do Tópico</th>
+                            <th>Ações</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Topico #1</td>
+                            <td><button class="btn btn-dark"></button><button class="btn btn-dark"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Topico #2</td>
+                           <td><button class="btn btn-dark"></button><button class="btn btn-dark"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Topico #3</td>
+                           <td><button class="btn btn-dark"></button><button class="btn btn-dark"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Topico #4</td>
+                           <td><button class="btn btn-dark"></button><button class="btn btn-dark"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Topico #5</td>
+                           <td><button class="btn btn-dark"></button><button class="btn btn-dark"></button></td>
+                        </tr>
+                        <tr>
+                            <td>Topico #6</td>
+                           <td><button class="btn btn-dark"></button><button class="btn btn-dark"></button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            
+
         </div>
-        </div>
-    @endsection
+    </div>
+@endsection

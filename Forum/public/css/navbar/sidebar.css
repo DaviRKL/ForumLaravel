@@ -25,7 +25,7 @@ body, main {
 }
 .NavbarIcon:hover{
     transform: rotate(-360deg);
-    transition-duration: 1s;
+    transition-duration: 0.5s;
 }
 
 .navbar-link{

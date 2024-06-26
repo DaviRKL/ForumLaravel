@@ -1,12 +1,13 @@
 /* public/css/sidebar.css */
-@import url('createPost.css');
-@import url('listAllUsers.css');
-@import url('login.css');
-@import url('sidebar.css');
-@import url('signIn.css');
-@import url('welcome.css');
-@import url('allPosts.css');
-@import url('allTopics.css');
+@import url('./post/createPost.css');
+@import url('./user/listAllUsers.css');
+@import url('./auth/login.css');
+@import url('./navbar/sidebar.css');
+@import url('./auth/signIn.css');
+@import url('./welcome/welcome.css');
+@import url('./post/allPosts.css');
+@import url('./topic/allTopics.css');
+
 body {
   font-family: 'Nunito', sans-serif;
   margin: 0;

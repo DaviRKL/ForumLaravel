@@ -36,7 +36,7 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha:</label>
                     <input type="password" id="password" name="password" 
-                        placeholder = "{{ $user->password }}" class="form-control">
+                       class="form-control">
                     @error('password')
                         <span>{{ $message }}</span>
                     @enderror

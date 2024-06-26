@@ -236,4 +236,17 @@
     .slider-scrollbar .scrollbar-thumb {
         width: 20%;
     }
+    .containerWelcome {
+        flex-direction: column;
+        text-align: center; /* Centraliza o texto e a imagem */
+    }
+
+    .image {
+        width: 100%;
+        margin-bottom: 20px; /* Espaçamento entre a imagem e o texto */
+    }
+
+    .text {
+        width: 100%;
+    }
 }

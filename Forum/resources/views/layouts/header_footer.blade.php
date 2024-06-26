@@ -59,14 +59,14 @@
                     </a>
                 </div>
                 <div class="nav-icon">
-                    <a href="logout" class="nav-icon">
+                    <a href="{{ route('logout')}}" class="nav-icon">
                         <i class="fas fa-sign-out-alt"></i>
                         <!-- <p>Sair</p> -->
                     </a>
                 </div>
             @else
-                <a class="navbar-link" href="register">Cadastre-se</a>
-                <a class="navbar-link" href="login">Entrar</a>
+                <a class="navbar-link" href="{{route('register')}}">Cadastre-se</a>
+                <a class="navbar-link" href="{{route('login')}}">Entrar</a>
             @endif
         </div>
         <div id="sidebar" class="sidebar">

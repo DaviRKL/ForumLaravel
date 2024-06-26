@@ -8,7 +8,8 @@
 @import url('./post/allPosts.css');
 @import url('./topic/allTopics.css');
 @import url('./user/profile.css');
-@import url('./tag/view_tag.css');
+@import url('./tag/viewTag.css');
+@import url('./topic/viewTopic.css');
 
 body {
   font-family: 'Nunito', sans-serif;

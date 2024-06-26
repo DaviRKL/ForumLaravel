@@ -24,6 +24,8 @@ Route::match(['get', 'post'], '/register', [UserController::class, 'register'])-
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/Posts', [PostController::class, 'listAllPosts'])->name('listAllPosts');
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
@@ -35,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/users/{id}/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
 
 
-    Route::get('/Posts', [PostController::class, 'listAllPosts'])->name('listAllPosts');
+    
 
     Route::get('/Posts/{id}', [PostController::class, 'listPostById'])->name('listPostById');
 

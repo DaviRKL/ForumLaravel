@@ -13,13 +13,13 @@ class TopicController extends Controller
         return view('topics.createTopic');
     }
 
-    public function listPostById(Request $request,$id) {
+    public function listTopicById(Request $request,$id) {
         // $user = User::where('id', $id)->first(); //Busca um usuário pelo ID
         // return view('users.profile', ['user' => $user]);
-        return view('topics.view_post');
+        return view('topics.view_topic');
     }
 
-    public function UpdatePost(Request $request, $id) {
+    public function UpdateTopic(Request $request, $id) {
         // $user = User::where('id', $id)->first();
         // $user->name = $request->name;
         // $user->email = $request->email;
@@ -28,12 +28,12 @@ class TopicController extends Controller
         // }
         // $user->save();
         // return redirect()->route('listUserById', [$user->id])->with('message-sucess', 'Alteração realizada com sucesso');
-        return view('topics.view_post');
+        return view('topics.view_topic');
     }
 
-    public function deletePost(Request $request, $id) {
+    public function deleteTopic(Request $request, $id) {
         // $user = User::where('id', $id)->delete();
         // return redirect()->route('listAllUsers');
-        return view('topics.view_post');
+        return view('topics.view_topic');
     }
 }

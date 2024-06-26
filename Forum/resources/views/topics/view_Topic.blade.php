@@ -82,7 +82,7 @@
                     <form  {{-- action="{{ route('deleteUser', [$user->id]) }}" --}} method="POST" class="w-50">
                         @csrf
                         @method('delete')
-                        <input type="submit" class="btn btn-danger" value=" Confirmar">
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Confirmar</button>
                     </form>
                 </div>
             </div>

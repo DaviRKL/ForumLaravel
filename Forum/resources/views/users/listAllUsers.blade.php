@@ -41,8 +41,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-cancel" data-bs-dismiss="modal"><i
                                 class="fa-solid fa-rotate-left"></i> Voltar</button>
-                        <button type="button" class="btn btn-danger"><i class="fa-solid fa-user-slash"></i> Confirmar
-                            Banimento</button>
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Confirmar</button>
                     </div>
                 </div>
             </div>

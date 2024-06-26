@@ -79,10 +79,10 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-cancel" data-bs-dismiss="modal"><i
                             class="fa-solid fa-rotate-left"></i> Voltar</button>
-                    <form  {{-- action="{{ route('deleteUser', [$user->id]) }}" --}} method="POST" class="w-50">
+                    <form  {{-- action="{{ route('deleteUser', [$user->id]) }}" --}} method="POST">
                         @csrf
                         @method('delete')
-                        <input type="submit" class="btn btn-danger" value=" Confirmar">
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Confirmar</button>
                     </form>
                 </div>
             </div>

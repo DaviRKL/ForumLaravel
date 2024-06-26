@@ -16,7 +16,7 @@ class TagController extends Controller
     public function listTagById(Request $request,$id) {
         // $user = User::where('id', $id)->first(); //Busca um usuário pelo ID
         // return view('users.profile', ['user' => $user]);
-        return view('topics.view_Tag');
+        return view('tags.view_Tag');
     }
 
     public function UpdateTag(Request $request, $id) {
@@ -28,12 +28,12 @@ class TagController extends Controller
         // }
         // $user->save();
         // return redirect()->route('listUserById', [$user->id])->with('message-sucess', 'Alteração realizada com sucesso');
-        return view('topics.view_Tag');
+        return view('tags.view_Tag');
     }
 
     public function deleteTag(Request $request, $id) {
         // $user = User::where('id', $id)->delete();
         // return redirect()->route('listAllUsers');
-        return view('topics.view_Tag');
+        return view('tags.view_Tag');
     } 
 }

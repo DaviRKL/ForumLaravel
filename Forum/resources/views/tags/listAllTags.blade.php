@@ -108,10 +108,10 @@
                     Você tem certeza que deseja excluir este Tag?
                 </div>
                 <div class="modal-footer">
-                    <form action="" method="POST" class="w-500">
+                    <form action="" method="POST">
                         @csrf
                         @method('delete')
-                        <input type="submit" class="btn btn-danger" value=" Confirmar">
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Confirmar</button>
                     </form>
                 </div>
             </div>

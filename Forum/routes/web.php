@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TopicController;
+use App\Http\Controllers\TagController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,15 +34,17 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/users/{id}/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
 
+
     Route::get('/Posts', [PostController::class, 'listAllPosts'])->name('listAllPosts');
 
     Route::get('/Posts/{id}', [PostController::class, 'listPostById'])->name('listPostById');
 
     Route::put('/Posts/{id}/update', [PostController::class, 'updatePost'])->name('updatePost');
 
-    Route::get('/Posts/{id}/delete', [PostController::class, 'deletePost'])->name('deletePost');
+    Route::delete('/Posts/{id}/delete', [PostController::class, 'deletePost'])->name('deletePost');
 
     Route::match(['get', 'post'], '/createPost', [PostController::class, 'createPost'])->name('createPost');
+
 
     Route::get('/Topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
 
@@ -49,7 +52,19 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/Topics/{id}/update', [TopicController::class, 'updateTopic'])->name('updateTopic');
 
-    Route::get('/Topics/{id}/delete', [TopicController::class, 'deleteTopic'])->name('deleteTopic');
+    Route::delete('/Topics/{id}/delete', [TopicController::class, 'deleteTopic'])->name('deleteTopic');
 
     Route::match(['get', 'post'], '/createTopic', [TopicController::class, 'createTopic'])->name('createTopic');
+
+
+    Route::get('/Tags', [TagController::class, 'listAllTags'])->name('listAllTags');
+
+    Route::get('/Tags/{id}', [TagController::class, 'listTagById'])->name('listTagById');
+
+    Route::put('/Tags/{id}/update', [TagController::class, 'updateTag'])->name('updateTag');
+
+    Route::delete('/Tags/{id}/delete', [TagController::class, 'deleteTag'])->name('deleteTag');
+
+    Route::match(['get', 'post'], '/createTag', [TagController::class, 'createTag'])->name('createTag');
+
 });

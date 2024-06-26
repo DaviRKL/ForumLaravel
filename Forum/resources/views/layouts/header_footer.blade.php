@@ -92,8 +92,8 @@
                         class="fa-solid fa-plus"></i> Criar Topicos</a>
 
                 <a href="#collapseTag" data-bs-toggle="collapse"><i class="fa-solid fa-hashtag"></i> Tags</a>
-                <a class="collapse" id="collapseTag"><i class="fa-solid fa-hashtag"></i> Ver Tags</a>
-                <a class="collapse" id="collapseTag"><i class="fa-solid fa-plus"></i> Criar Tags</a>
+                <a class="collapse" id="collapseTag" href="{{ route('listAllTags') }}"><i class="fa-solid fa-hashtag"></i> Ver Tags</a>
+                <a class="collapse" id="collapseTag" href="{{ route('createTag') }}"><i class="fa-solid fa-plus"></i> Criar Tags</a>
 
                 @if (Auth::check())
                     <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="sidebar-user"><i

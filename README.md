@@ -42,4 +42,4 @@ Se tiver alguma dúvida ou sugestão, sinta-se à vontade para abrir uma issue o
 
 ### Créditos
 
-Projeto desenvolvido por [Davi Ryan Konuma Lima], aluno da Fatec Sorocaba.
+Projeto desenvolvido por Davi Ryan Konuma Lima, aluno da Fatec Sorocaba.

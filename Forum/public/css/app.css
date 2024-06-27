@@ -11,6 +11,13 @@
 @import url('./tag/viewTag.css');
 @import url('./topic/viewTopic.css');
 
+:root {
+  --masterball-purple-dark: #4F2C83;
+  --masterball-purple-light: #9B6BCC;
+  --masterball-white: #FFFFFF;
+  --masterball-black: #000000;
+}
+
 body {
   font-family: 'Nunito', sans-serif;
   margin: 0;
@@ -31,4 +38,8 @@ body {
 
 a{
   text-decoration: none;
+}
+
+.toast-success {
+  background-color: linear-gradient(to bottom,var(--masterball-purple-dark) ,var(--masterball-purple-light) );
 }

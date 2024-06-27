@@ -25,21 +25,27 @@
 </head>
 
 <body>
+    <style>
+     .toast-success {
+  background: var(--masterball-purple-light);
+}
+
+    </style>
 
     <div id="app">
         @if (Session::has('message-sucess'))
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
                     toastr.success("{{ session('message-sucess') }}");
-                    timeOut: 4000
+                    timeOut: 5000
+                    
                 });
             </script>
         @elseif (Session::has('message-error'))
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                    toastr.success("{{ session('message-error') }}");
-
-                    timeOut: 4000
+                    toastr.error("{{ session('message-error') }}");
+                    timeOut: 5000
                 });
             </script>
         @endif

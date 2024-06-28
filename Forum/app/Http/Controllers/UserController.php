@@ -39,7 +39,7 @@ public function register(Request $request) {
 
         Auth::login($user);
 
-        return redirect()->route('listAllUsers');
+        return redirect()->route('welcome')->with('message-sucess', 'Seja Bem Vindo ' . Auth::user()->name);
     }
 }
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,7 @@ use App\Http\Controllers\TagController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [AuthController::class, 'teste'])->name('teste');
+Route::get('/', [Controller::class, 'welcome'])->name('welcome');
 
 Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])->name('login');
 

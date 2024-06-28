@@ -52,7 +52,7 @@
         <div class="navbar">
             <i class="fa fa-bars" id="btn-navbar"></i>
             <div class="titleWrapper">
-                <a href="{{ route('teste') }}">
+                <a href="{{ route('welcome') }}">
                     <h1 class="Title"><img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">MasterForum
                     </h1>
                 </a>
@@ -81,7 +81,7 @@
                 <i class="fas fa-times" id="close-btn"></i>
             </div>
             <div class="sidebar-content">
-                <a href="{{ route('teste') }}"><i class="fa fa-home"></i> Início</a>
+                <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> Início</a>
                 <a href="{{ route('listAllUsers') }}"><i class="fa-solid fa-users"></i> Lista de usuários</a>
 
                 <a href="#collapsePost" data-bs-toggle="collapse"><i class="fa-solid fa-comments"></i> Posts</a>

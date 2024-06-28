@@ -16,7 +16,7 @@ class AuthController extends Controller
                 'password' => 'required|string'
                ]);
             if (Auth::attempt($credentials)){
-                return redirect()->route('teste')->with('message-sucess', 'Seja Bem Vindo ' . Auth::user()->name);
+                return redirect()->route('welcome')->with('message-sucess', 'Seja Bem Vindo ' . Auth::user()->name);
             }
             return back()->withErrors([
                 'email' => 'Credenciais inválidas.',
@@ -26,13 +26,10 @@ class AuthController extends Controller
             
     }
 
-    public function teste() {
-       
-        return view('welcome');
-     }
+    
 
     public function logout() {
        Auth::logout();
-       return redirect()->route('teste')->with('message-sucess', 'Logout realizado com sucesso');
+       return redirect()->route('welcome')->with('message-sucess', 'Logout realizado com sucesso');
     }
 }

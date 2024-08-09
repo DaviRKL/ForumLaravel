@@ -2,38 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
     public function listAllTags(){
-        return view('tags.listAllTags');
+        $tags = Tag::all(); 
+        return view('tags.listAllTags', ['tags' => $tags]);
     }
-    public function createTag(){
-        return view('tags.createTag');
+    public function createTag(Request $request){
+        if ($request->isMethod('GET')) {
+            return view('tags.createTag');
+        } else {
+             $request->validate([
+                'title' => 'required|string|max:255',
+             ]);
+    
+            $tag = Tag::create([
+                'title' => $request->title,
+            ]);
+    
+            return view('tags.listAllTags');
+        }
+        
     }
 
     public function listTagById(Request $request,$id) {
-        // $user = User::where('id', $id)->first(); //Busca um usuário pelo ID
-        // return view('users.profile', ['user' => $user]);
-        return view('tags.view_Tag');
+        $tag = Tag::where('id', $id)->first();
+        return view('tags.view_Tag', ['tag' => $tag]);
     }
 
     public function UpdateTag(Request $request, $id) {
-        // $user = User::where('id', $id)->first();
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // if ($request->password != ''){
-        //     $user->password = Hash::make($request->password);
-        // }
-        // $user->save();
-        // return redirect()->route('listUserById', [$user->id])->with('message-sucess', 'Alteração realizada com sucesso');
-        return view('tags.view_Tag');
+        $tag = Tag::where('id', $id)->first();
+        $tag->title = $request->title;
+        $tag->save();
+        return redirect()->route('listTagById', [$tag->id])->with('message-sucess', 'Alteração realizada com sucesso');
     }
 
     public function deleteTag(Request $request, $id) {
-        // $user = User::where('id', $id)->delete();
-        // return redirect()->route('listAllUsers');
+        $tag = Tag::where('id', $id)->delete();
+        return redirect()->route('listAllTags');
         return view('tags.view_Tag');
     } 
 }

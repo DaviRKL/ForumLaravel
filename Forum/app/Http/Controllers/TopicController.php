@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 class TopicController extends Controller
 {
     public function listAllTopics(){
-        return view('topics.listAllTopics');
+        $topics = Topic::all(); 
+        return view('topics.listAllTopics', ['topics' => $topics]);
     }
-    public function createTopic(){
+    public function createTopic(Request $request){
         if ($request->isMethod('GET')) {
             return view('topic.create');
         } else {
@@ -20,18 +21,18 @@ class TopicController extends Controller
              ]);
     
             $topic = Topic::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
+                'title' => $request->title,
+                'description' => $request->description,
+                'status' => $request->status,
             ]);
     
-            Auth::login($topic);
+            // Auth::login($topic);
     
             return redirect()->route('welcome');
         }
     }
 
-    public function listTopicById(Request $request,$id) {
+    public function listTopicById(Request $request, $id) {
          $topic = Topic::where('id', $id)->first(); 
          return view('topics.view_topic', ['topic' => $topic]);
     }
@@ -43,7 +44,6 @@ class TopicController extends Controller
         $topic->status = $request->status;
         $topic->save();
         return redirect()->route('listTopicById', [$topic->id])->with('message-sucess', 'Alteração realizada com sucesso');
-        return view('topics.view_topic');
     }
 
     public function deleteTopic(Request $request, $id) {

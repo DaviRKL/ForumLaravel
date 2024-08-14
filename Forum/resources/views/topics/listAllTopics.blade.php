@@ -14,8 +14,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                       
                         <tr>
-                            <td>Topico #1</td>
+                        <tr>
+                        @foreach ($topics as $topic)
+                        <tr>
+                            <td>{{ $topic->title }}</td>
                             <td>
                                 <div class="row">
                                     <input type="submit" class="btn btn-edit" value="Editar">
@@ -27,71 +31,7 @@
                                 <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir tópico</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Topico #2</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir tópico</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Topico #3</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir tópico</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Topico #4</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir tópico</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Topico #5</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir tópico</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Topico #6</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir tópico</a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

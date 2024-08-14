@@ -12,7 +12,7 @@ class TopicController extends Controller
     }
     public function createTopic(Request $request){
         if ($request->isMethod('GET')) {
-            return view('topic.create');
+            return view('topics.createTopic');
         } else {
              $request->validate([
                 'title' => 'required|string|max:255',

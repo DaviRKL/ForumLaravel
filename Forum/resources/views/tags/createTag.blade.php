@@ -3,7 +3,7 @@
 @section('content')
 <div class="create-post-container">
     
-    <form action="{{route('register')}}" method="POST" class="create-post-form">
+    <form action="{{route('createTag')}}" method="POST" class="create-post-form">
         <h2 class="create-post-title">Crie sua Tag!</h2>
         @csrf
         <div class="form-group">

@@ -14,84 +14,21 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        @foreach ($tags as $tag)
                         <tr>
-                            <td>Tag #1</td>
+                            <td>{{ $tag->title }}</td>
                             <td>
                                 <div class="row">
                                     <input type="submit" class="btn btn-edit" value="Editar">
 
                                 </div>
-
                             </td>
                             <td>
                                 <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir Tag</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Tag #2</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir Tag</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tag #3</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir Tag</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tag #4</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir Tag</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tag #5</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir Tag</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tag #6</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir Tag</a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

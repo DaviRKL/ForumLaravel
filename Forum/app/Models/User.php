@@ -21,7 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'photo'
+        'photo',
+        'role'
     ];
 
     public function posts()
@@ -32,6 +33,19 @@ class User extends Authenticatable
     public function rates()
     {
         return $this->belongsToMany(Post::class);
+    }
+
+    public function isModerator() {
+        return $this->role === 'moderator' ||  $this->role === 'admin';
+    }
+
+    public function isAdmin() {
+        return $this->role === 'admin';
+    }
+
+    public function rate()
+    {
+        return $this->hasMany(Rate::class);
     }
 
     /**

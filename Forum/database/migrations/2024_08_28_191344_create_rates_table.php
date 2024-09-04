@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->id();
+            $table->boolean("vote");
             $table->timestamps();
+
+            $table->foreign('post_id')->references('id')->on('posts');
         });
     }
 

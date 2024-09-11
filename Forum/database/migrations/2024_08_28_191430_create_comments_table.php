@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->text('content');
+            $table->foreing('topic_id')->references('id')->on('topics');
             $table->timestamps();
         });
     }

@@ -14,10 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('topics', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id')->primary();
+            $table->foreing('id')->references('id')->on('posts');
             $table->text("title");
             $table->text("description");
             $table->boolean("status")->default(true);
+            $table->foreing('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

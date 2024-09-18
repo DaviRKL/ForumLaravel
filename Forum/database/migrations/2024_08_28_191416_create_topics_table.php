@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
-            $table->foreing('id')->references('id')->on('posts');
+            $table->foreign('id')->references('id')->on('posts');
             $table->text("title");
             $table->text("description");
             $table->boolean("status")->default(true);
-            $table->foreing('category_id')->references('id')->on('categories');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

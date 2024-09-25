@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +39,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/users/{id}/delete', [UserController::class, 'deleteUser'])->name('deleteUser');
 
 
-    
-
     Route::get('/Posts/{id}', [PostController::class, 'listPostById'])->name('listPostById');
 
     Route::put('/Posts/{id}/update', [PostController::class, 'updatePost'])->name('updatePost');
@@ -69,5 +68,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/Tags/{id}/delete', [TagController::class, 'deleteTag'])->name('deleteTag');
 
     Route::match(['get', 'post'], '/createTag', [TagController::class, 'createTag'])->name('createTag');
+
+
+    Route::get('/Categories', [CategoryController::class, 'listAllCategories'])->name('listAllCategories');
+
+    Route::get('/Categories/{id}', [CategoryController::class, 'listCategoryById'])->name('listCategoryById');
+
+    Route::put('/Categories/{id}/update', [CategoryController::class, 'updateCategory'])->name('updateCategory');
+
+    Route::delete('/Categories/{id}/delete', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
+
+    Route::match(['get', 'post'], '/createCategory', [CategoryController::class, 'createCategory'])->name('createCategory');
 
 });

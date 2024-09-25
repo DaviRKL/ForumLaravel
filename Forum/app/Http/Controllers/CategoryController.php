@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -32,7 +33,7 @@ class CategoryController extends Controller
 
     public function listCategoryById(Request $request, $id) {
          $category = Category::where('id', $id)->first(); 
-         return view('categories.view_topic', ['topic' => $categry]);
+         return view('categories.view_topic', ['topic' => $category]);
     }
 
     public function UpdateCategory(Request $request, $id) {

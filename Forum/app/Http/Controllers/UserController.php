@@ -20,7 +20,7 @@ class UserController extends Controller
         return view('users.profile', ['user' => $user]);
     }
 
-    
+
 public function register(Request $request) {
     if ($request->isMethod('GET')) {
         return view('users.create');
@@ -35,6 +35,8 @@ public function register(Request $request) {
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'photo' => $request->photo ?? "",
+            'role' => $request->role ?? "user",
         ]);
 
         Auth::login($user);
@@ -58,5 +60,5 @@ public function register(Request $request) {
         $user = User::where('id', $id)->delete();
         return redirect()->route('listAllUsers');
     }
-    
+
 }

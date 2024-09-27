@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
-    public function listAllTags(){
-        $tags = Tag::all(); 
+    public function listAllTags() {
+        $tags = Tag::all();
         return view('tags.listAllTags', ['tags' => $tags]);
     }
     public function createTag(Request $request){
@@ -18,14 +18,13 @@ class TagController extends Controller
              $request->validate([
                 'title' => 'required|string|max:255',
              ]);
-    
-            $tag = Tag::create([
+
+            Tag::create([
                 'title' => $request->title,
             ]);
-    
-            return view('tags.listAllTags');
+            $tags = Tag::all();
+            return redirect()->route('listAllTags', ['tags' => $tags])->with('message-sucess', 'Tag adicionada com sucesso');
         }
-        
     }
 
     public function listTagById(Request $request,$id) {
@@ -37,12 +36,13 @@ class TagController extends Controller
         $tag = Tag::where('id', $id)->first();
         $tag->title = $request->title;
         $tag->save();
-        return redirect()->route('listTagById', [$tag->id])->with('message-sucess', 'Alteração realizada com sucesso');
+        $tags = Tag::all();
+            return redirect()->route('listAllTags', ['tags' => $tags])->with('message-sucess', 'Tag alterada com sucesso');
+           //return redirect()->route('listTagById', [$tag->id])->with('message-sucess', 'Alteração realizada com sucesso');
     }
 
     public function deleteTag(Request $request, $id) {
-        $tag = Tag::where('id', $id)->delete();
+        Tag::where('id', $id)->delete();
         return redirect()->route('listAllTags');
-        return view('tags.view_Tag');
-    } 
+    }
 }

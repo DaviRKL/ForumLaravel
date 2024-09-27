@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="create-post-container">
-    
+
     <form action="{{route('createCategory')}}" method="POST" class="create-post-form">
-        <h2 class="create-post-title">Crie sua Tag!</h2>
+        <h2 class="create-post-title">Crie sua Categoria!</h2>
         @csrf
         <div class="form-group">
             <label for="title" class="form-label">Titulo da Categoria:</label>

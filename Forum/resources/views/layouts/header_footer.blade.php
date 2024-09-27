@@ -38,7 +38,7 @@
                 document.addEventListener("DOMContentLoaded", function() {
                     toastr.success("{{ session('message-sucess') }}");
                     timeOut: 5000
-                    
+
                 });
             </script>
         @elseif (Session::has('message-error'))
@@ -52,16 +52,17 @@
         <div class="navbar">
             <i class="fa fa-bars" id="btn-navbar"></i>
             <div class="titleWrapper">
-                <a href="{{ route('welcome') }}">
-                    <h1 class="Title"><img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">MasterForum
+                    <h1 class="Title">
+                        <a href="{{ route('welcome') }}">
+                            <img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">
+                        </a>
+                        MasterForum
                     </h1>
-                </a>
             </div>
             @if (Auth::check())
                 <div class="nav-icon">
                     <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="nav-icon">
                         <i class="fas fa-user-circle"></i>
-                        <!-- <p>Meu perfil</p> -->
                     </a>
                 </div>
                 <div class="nav-icon">
@@ -91,11 +92,11 @@
                     Criar Posts</a>
 
                 <a data-bs-toggle="collapse" href="#collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i>
-                    Topicos</a>
-                <a class="collapse" id="collapseTopicos" href="{{ route('listAllTopics') }}"><i
-                        class="fa-solid fa-arrow-trend-up"></i> Ver Topicos</a>
-                <a class="collapse" id="collapseTopicos" href="{{ route('createTopic') }}"><i
-                        class="fa-solid fa-plus"></i> Criar Topicos</a>
+                    Categorias</a>
+                <a class="collapse" id="collapseTopicos" href="{{ route('listAllCategories') }}"><i
+                        class="fa-solid fa-arrow-trend-up"></i> Ver Categorias</a>
+                <a class="collapse" id="collapseTopicos" href="{{ route('createCategory') }}"><i
+                        class="fa-solid fa-plus"></i> Criar Categorias</a>
 
                 <a href="#collapseTag" data-bs-toggle="collapse"><i class="fa-solid fa-hashtag"></i> Tags</a>
                 <a class="collapse" id="collapseTag" href="{{ route('listAllTags') }}"><i class="fa-solid fa-hashtag"></i> Ver Tags</a>

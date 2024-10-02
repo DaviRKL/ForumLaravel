@@ -22,7 +22,6 @@
                                 <td>{{ $category->description }}</td>
                                 <td>
                                     <div class="row">
-                                        <!-- Botão para abrir o modal de edição -->
                                         <a class="btn btn-edit" data-bs-toggle="modal"
                                             data-bs-target="#editModal{{ $category->id }}">
                                             <i class="fa-solid fa-edit"></i> Editar
@@ -78,6 +77,33 @@
                                                     <button type="submit" class="btn btn-primary">Salvar
                                                         Alterações</button>
                                                 </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal de Exclusão de Categoria -->
+                            <div class="modal fade" id="banModal{{ $category->id }}" tabindex="-1"
+                                aria-labelledby="banModalLabel{{ $category->id }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="banModalLabel{{ $category->id }}">Excluir Categoria
+                                            </h5>
+                                            <i class="fas fa-times" data-bs-dismiss="modal" aria-label="Close"
+                                                id="close-btn"></i>
+                                        </div>
+                                        <div class="modal-body">
+                                            Você tem certeza que deseja excluir esta Categoria?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="{{ route('deleteCategory', [$category->id]) }}" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fa-solid fa-trash-can"></i> Confirmar
+                                                </button>
                                             </form>
                                         </div>
                                     </div>

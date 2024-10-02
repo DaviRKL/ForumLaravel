@@ -27,7 +27,7 @@
 <body>
     <style>
      .toast-success {
-  background: var(--masterball-purple-light);
+  background: #e20d82;
 }
 
     </style>

@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class TopicController extends Controller
 {
+    public function Index(){
+        $topics = Topic::all(); 
+        return $topics;
+    }
+
     public function listAllTopics(){
         $topics = Topic::all(); 
         return view('topics.listAllTopics', ['topics' => $topics]);

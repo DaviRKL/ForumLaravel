@@ -15,9 +15,10 @@ class Topic extends Post
         'status',
     ];
 
-    public function post(){
-        return $this->BelongsTo(Post::class, 'id');
+    public function post() {
+        return $this->morphOne(Post::class, 'postable');
     }
+
 
     public function category()
     {

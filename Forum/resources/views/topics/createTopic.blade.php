@@ -16,6 +16,9 @@
             <label for="status" class="form-label">Status do Topico:</label>
             <input type="number" id="status" name="status" class="form-input" value="{{ old('status') }}" required>
             @error("status") <span>{{$message}}</span> @enderror
+            <label for="image" class="form-label">Imagem do Topico:</label>
+            <input type="text" id="image" name="image" class="form-input" value="{{ old('image') }}" required>
+            @error("image") <span>{{$message}}</span> @enderror
         </div>
         <input type="submit" class="submit-button" value="Enviar">
     </form>

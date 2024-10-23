@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Topic;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class TopicController extends Controller
@@ -17,18 +18,26 @@ class TopicController extends Controller
     }
     public function createTopic(Request $request){
         if ($request->isMethod('GET')) {
-            return view('topics.createTopic');
+            $categories = Category::all();
+            return view('topics.createTopic', ['categories' => $categories]);
         } else {
              $request->validate([
                 'title' => 'required|string|max:255',
-                'description' => 'required|string|',
-                'status' => 'required|string|',
+                'description' => 'required|string',
+                'status' => 'required|int',
+                'image' => 'required|string',
+                'category' => 'required'
              ]);
     
             $topic = Topic::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'status' => $request->status,
+                'category_id' => $request->category
+            ]);
+
+            $post = new Post([
+                'image' => $request->image
             ]);
     
             // Auth::login($topic);

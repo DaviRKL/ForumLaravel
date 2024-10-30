@@ -13,6 +13,7 @@ class Topic extends Post
         'title',
         'description',
         'status',
+        'category_id'
     ];
 
     public function post() {

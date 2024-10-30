@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="create-post-container">
-
+ 
     <form action="{{route('createTopic')}}" method="POST" class="create-post-form">
         <h2 class="create-post-title">Crie seu Topico!</h2>
         @csrf

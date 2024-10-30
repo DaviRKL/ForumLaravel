@@ -11,16 +11,14 @@ class Post extends Model
 
     protected $fillable = [
         'image',
+        'user_id'
     ];
 
     public function postable(){
         return $this->morphTo();
     }
 
-    public function topic(){
-        return $this->hasOne(Topic::class, 'id');
-    }
-
+   
     public function user()
     {
         return $this->belongsTo(User::class);

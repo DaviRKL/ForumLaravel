@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Topic;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Post;
+use Illuminate\Support\Facades\Auth;
 
 class TopicController extends Controller
 {
@@ -15,36 +17,37 @@ class TopicController extends Controller
     public function listAllTopics(){
         $topics = Topic::all(); 
         return view('topics.listAllTopics', ['topics' => $topics]);
-    }
-    public function createTopic(Request $request){
+    } 
+    public function createTopic(Request $request) {
         if ($request->isMethod('GET')) {
             $categories = Category::all();
             return view('topics.createTopic', ['categories' => $categories]);
         } else {
-             $request->validate([
+            $request->validate([
                 'title' => 'required|string|max:255',
                 'description' => 'required|string',
                 'status' => 'required|int',
                 'image' => 'required|string',
-                'category' => 'required'
-             ]);
+                'category_id' => 'required|exists:categories,id' // Verifica se a categoria existe
+            ]);
     
             $topic = Topic::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'status' => $request->status,
-                'category_id' => $request->category
-            ]);
-
-            $post = new Post([
-                'image' => $request->image
+                'category_id' => $request->category_id
             ]);
     
-            // Auth::login($topic);
-    
+           
+            $topic->post()->create([
+                'user_id' => Auth::id(),
+                'image' => $request->image 
+            ]);
+            
             return redirect()->route('welcome');
         }
     }
+    
 
     public function listTopicById(Request $request, $id) {
          $topic = Topic::where('id', $id)->first(); 

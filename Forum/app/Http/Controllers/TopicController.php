@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Auth;
 class TopicController extends Controller
 {
     public function Index(){
-        $topics = Topic::all(); 
+        $topics = Topic::all();
         return $topics;
     }
 
     public function listAllTopics(){
-        $topics = Topic::all(); 
+        $topics = Topic::with('comments')->get(); // Carrega os tópicos e os comentários associados
         return view('topics.listAllTopics', ['topics' => $topics]);
-    } 
+    }
     public function createTopic(Request $request) {
         if ($request->isMethod('GET')) {
             $categories = Category::all();
@@ -30,27 +30,27 @@ class TopicController extends Controller
                 'image' => 'required|string',
                 'category_id' => 'required|exists:categories,id' // Verifica se a categoria existe
             ]);
-    
+
             $topic = Topic::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'status' => $request->status,
                 'category_id' => $request->category_id
             ]);
-    
-           
+
+
             $topic->post()->create([
                 'user_id' => Auth::id(),
-                'image' => $request->image 
+                'image' => $request->image
             ]);
-            
+
             return redirect()->route('welcome');
         }
     }
-    
+
 
     public function listTopicById(Request $request, $id) {
-         $topic = Topic::where('id', $id)->first(); 
+         $topic = Topic::where('id', $id)->first();
          return view('topics.view_topic', ['topic' => $topic]);
     }
 

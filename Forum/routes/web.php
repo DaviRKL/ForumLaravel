@@ -18,7 +18,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/posts', [PostController::class, 'listAllPosts'])->name('listAllPosts');
 
 Route::middleware('auth')->group(function () {
-    
+
     // Users
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
     Route::get('/users/{id}', [UserController::class, 'listUserById'])->name('listUserById');
@@ -51,4 +51,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/categories/{id}', [CategoryController::class, 'listCategoryById'])->name('listCategoryById');
     Route::put('/categories/{id}/update', [CategoryController::class, 'updateCategory'])->name('updateCategory');
     Route::delete('/categories/{id}/delete', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
+
+    // Comments
+    Route::match(['get', 'post'], '/comments/create', [CommentController::class, 'createComment'])->name('createComment');
+    Route::get('/comments', [CommentController::class, 'listAllComments'])->name('listAllComments');
+    Route::get('/comments/{id}', [CommentController::class, 'viewComment'])->name('viewComment');
+    Route::put('/comments/{id}/update', [CommentController::class, 'updateComment'])->name('updateComment');
+    Route::delete('/comments/{id}/delete', [CommentController::class, 'deleteComment'])->name('deleteComment');
 });

@@ -26,10 +26,9 @@
 
 <body>
     <style>
-     .toast-success {
-  background: #e20d82;
-}
-
+        .toast-success {
+            background: #e20d82;
+        }
     </style>
 
     <div id="app">
@@ -52,12 +51,12 @@
         <div class="navbar">
             <i class="fa fa-bars" id="btn-navbar"></i>
             <div class="titleWrapper">
-                    <h1 class="Title">
-                        <a href="{{ route('welcome') }}">
-                            <img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">
-                        </a>
-                        MasterForum
-                    </h1>
+                <h1 class="Title">
+                    <a href="{{ route('welcome') }}">
+                        <img class="NavbarIcon" src="{{ asset('images/masterIcon.ico') }}">
+                    </a>
+                    MasterForum
+                </h1>
             </div>
             @if (Auth::check())
                 <div class="nav-icon">
@@ -66,14 +65,14 @@
                     </a>
                 </div>
                 <div class="nav-icon">
-                    <a href="{{ route('logout')}}" class="nav-icon">
+                    <a href="{{ route('logout') }}" class="nav-icon">
                         <i class="fas fa-sign-out-alt"></i>
                         <!-- <p>Sair</p> -->
                     </a>
                 </div>
             @else
-                <a class="navbar-link" href="{{route('register')}}">Cadastre-se</a>
-                <a class="navbar-link" href="{{route('login')}}">Entrar</a>
+                <a class="navbar-link" href="{{ route('register') }}">Cadastre-se</a>
+                <a class="navbar-link" href="{{ route('login') }}">Entrar</a>
             @endif
         </div>
         <div id="sidebar" class="sidebar">
@@ -85,22 +84,26 @@
                 <a href="{{ route('welcome') }}"><i class="fa fa-home"></i> Início</a>
                 <a href="{{ route('listAllUsers') }}"><i class="fa-solid fa-users"></i> Lista de usuários</a>
 
-                <a href="#collapsePost" data-bs-toggle="collapse"><i class="fa-solid fa-comments"></i> Posts</a>
-                <a class="collapse" id="collapsePost" href="{{ route('listAllPosts') }}"><i
-                        class="fa-solid fa-comments"></i> Ver Post</a>
-                <a class="collapse" id="collapsePost" href="{{ route('createPost') }}"><i class="fa-solid fa-plus"></i>
-                    Criar Posts</a>
+                <a href="#collapseTopicos" data-bs-toggle="collapse"><i class="fa-solid fa-comments"></i> Topicos</a>
+                <a class="collapse" id="collapseTopicos" href="{{ route('listAllTopics') }}"><i
+                        class="fa-solid fa-comments"></i> Ver Topicos</a>
+                <a class="collapse" id="collapseTopicos" href="{{ route('createTopic') }}"><i
+                        class="fa-solid fa-plus"></i>
+                    Criar Topicos</a>
 
-                <a data-bs-toggle="collapse" href="#collapseTopicos"><i class="fa-solid fa-arrow-trend-up"></i>
+
+                <a data-bs-toggle="collapse" href="#collapseCategorias"><i class="fa-solid fa-arrow-trend-up"></i>
                     Categorias</a>
-                <a class="collapse" id="collapseTopicos" href="{{ route('listAllCategories') }}"><i
+                <a class="collapse" id="collapseCategorias" href="{{ route('listAllCategories') }}"><i
                         class="fa-solid fa-arrow-trend-up"></i> Ver Categorias</a>
-                <a class="collapse" id="collapseTopicos" href="{{ route('createCategory') }}"><i
+                <a class="collapse" id="collapseCategorias" href="{{ route('createCategory') }}"><i
                         class="fa-solid fa-plus"></i> Criar Categorias</a>
 
                 <a href="#collapseTag" data-bs-toggle="collapse"><i class="fa-solid fa-hashtag"></i> Tags</a>
-                <a class="collapse" id="collapseTag" href="{{ route('listAllTags') }}"><i class="fa-solid fa-hashtag"></i> Ver Tags</a>
-                <a class="collapse" id="collapseTag" href="{{ route('createTag') }}"><i class="fa-solid fa-plus"></i> Criar Tags</a>
+                <a class="collapse" id="collapseTag" href="{{ route('listAllTags') }}"><i
+                        class="fa-solid fa-hashtag"></i> Ver Tags</a>
+                <a class="collapse" id="collapseTag" href="{{ route('createTag') }}"><i class="fa-solid fa-plus"></i>
+                    Criar Tags</a>
 
                 @if (Auth::check())
                     <a href="{{ route('listUserById', [Auth::user()->id]) }}" class="sidebar-user"><i

@@ -14,14 +14,14 @@ body, main {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-    
+
+
 }
 
 .fas:hover, .fa:hover, .NavbarIcon:hover{
-   
+
     transform: scale(1.1);
-    
+
 }
 .NavbarIcon:hover{
     transform: rotate(-360deg);
@@ -44,7 +44,7 @@ body, main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 15px; 
+    margin: 0 15px;
 }
 
 .navbar .nav-icon .a-icons i {
@@ -61,8 +61,8 @@ body, main {
 
 .navbar .nav-icon p {
     margin-top: 60px;
-    font-size: 12px; 
-  
+    font-size: 12px;
+
 }
 
 
@@ -76,7 +76,7 @@ body, main {
     }
 }
 
-#collapseTopicos, #collapsePost, #collapseTag{
+#collapseTopicos, #collapsePost, #collapseTag, #collapseCategorias{
     margin-left: 40px;
     width: calc(100% - 25px);
 }
@@ -135,13 +135,13 @@ body, main {
 }
 
 .sidebar a:hover {
-   
-    transform: scale(1.05); 
+
+    transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .menu-text {
-    flex: 1; 
+    flex: 1;
 }
 
 .navbar {
@@ -176,19 +176,19 @@ body, main {
 }
 
 .fa-sign-out-alt{
-    position: absolute; 
-    top: 32px; 
+    position: absolute;
+    top: 32px;
     right: 32px;
-    width: 40px; 
-    color: var(--masterball-white); 
+    width: 40px;
+    color: var(--masterball-white);
     cursor: pointer;
 }
 .fa-user-circle{
-    position: absolute; 
-    top: 32px; 
+    position: absolute;
+    top: 32px;
     right: 96px;
-    width: 40px; 
-    color: var(--masterball-white); 
+    width: 40px;
+    color: var(--masterball-white);
     cursor: pointer;
 }
 

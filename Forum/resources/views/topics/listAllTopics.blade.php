@@ -1,60 +1,46 @@
 @extends('layouts.header_footer')
+
 @section('content')
-    <div class="containerAllUsers">
-        <div class="topics-list">
-           
-            <div class="table-topics-container">
-                <h2>Lista de Tópicos</h2>
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>Título do Tópico</th>
-                            <th>Editar</th>
-                            <th>Deletar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                       
-                        <tr>
-                        <tr>
-                        @foreach ($topics as $topic)
-                        <tr>
-                            <td>{{ $topic->title }}</td>
-                            <td>
-                                <div class="row">
-                                    <input type="submit" class="btn btn-edit" value="Editar">
-
-                                </div>
-
-                            </td>
-                            <td>
-                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-ban"></i> Excluir tópico</a>
-                            </td>
-                        </tr>
+    <div class="container mt-5">
+        <h1 class="mb-4">Lista de Tópicos</h1>
+        @if ($topics->isEmpty())
+            <div class="custom-alert-div">
+                <div class="alert custom-alert">
+                    <i class="fa-solid fa-exclamation-circle"></i>
+                    Não há tópicos disponíveis no momento.
+                </div>
+            </div>
+        @else
+            @foreach ($topics as $topic)
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5>{{ $topic->title }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <p>{{ $topic->description }}</p>
+                        <p>Status: {{ $topic->status }}</p>
+                        <p>Categoria: {{ $topic->category->name ?? 'Sem categoria' }}</p>
+                        <a href="{{ route('listTopicById', $topic->id) }}" class="btn btn-primary">Ver Tópico</a>
+                    </div>
+                    <div class="card-footer">
+                        <h6>Comentários:</h6>
+                        @foreach ($topic->comments as $comment)
+                            <div class="comment">
+                                <p><strong>Comentário:</strong> {{ $comment->content }}</p>
+                                <p><small>Criado em: {{ $comment->created_at->format('d/m/Y H:i') }}</small></p>
+                            </div>
                         @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="banModal" tabindex="-1" aria-labelledby="banModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="banModalLabel">Excluir Topico</h5>
-                    <i class="fas fa-times" data-bs-dismiss="modal" aria-label="Close" id="close-btn"></i>
+
+                        <form action="{{ route('createComment', $topic->id) }}" method="POST" class="mt-3">
+                            @csrf
+                            <div class="form-group">
+                                <textarea name="content" class="form-control" rows="2" placeholder="Adicionar um comentário" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success mt-2">Comentar</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    Você tem certeza que deseja excluir este Tópico?
-                </div>
-                <div class="modal-footer">
-                    <form action="" method="POST" class="w-500">
-                        @csrf
-                        @method('delete')
-                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Confirmar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+            @endforeach
+        @endif
     </div>
 @endsection

@@ -19,19 +19,21 @@
                     <div class="card-body">
                         <p>{{ $topic->description }}</p>
                         <p>Status: {{ $topic->status }}</p>
-                        <p>Categoria: {{ $topic->category->name ?? 'Sem categoria' }}</p>
+                        <p>Categoria: {{ $topic->category->title ?? 'Sem categoria' }}</p>
                         <a href="{{ route('listTopicById', $topic->id) }}" class="btn btn-primary">Ver Tópico</a>
                     </div>
                     <div class="card-footer">
                         <h6>Comentários:</h6>
                         @foreach ($topic->comments as $comment)
                             <div class="comment">
-                                <p><strong>Comentário:</strong> {{ $comment->content }}</p>
-                                <p><small>Criado em: {{ $comment->created_at->format('d/m/Y H:i') }}</small></p>
+                                <p><strong>{{  $comment->post->user->name ?? 'Usuário desconhecido' }}</strong> disse:</p>
+                            <p>{{ $comment->content }}</p>
+                            <p class="text-sm text-gray-500">{{ $comment->created_at->diffForHumans() }}</p>
                             </div>
                         @endforeach
 
-                        <form action="{{ route('createComment', $topic->id) }}" method="POST" class="mt-3">
+
+                        <form action="{{ route('createComment', ['topicId' => $topic->id]) }}" method="POST" class="mt-3">
                             @csrf
                             <div class="form-group">
                                 <textarea name="content" class="form-control" rows="2" placeholder="Adicionar um comentário" required></textarea>

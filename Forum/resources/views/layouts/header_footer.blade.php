@@ -75,6 +75,7 @@
                 <a class="navbar-link" href="{{ route('login') }}">Entrar</a>
             @endif
         </div>
+
         <div id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <span class="menu-text">Menu</span>

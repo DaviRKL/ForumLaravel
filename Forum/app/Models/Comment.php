@@ -11,14 +11,21 @@ class Comment extends Post
 
     protected $fillable = [
         'content',
+        'topic_id'
     ];
 
-    public function post() {
+    public function post()
+    {
         return $this->morphOne(Post::class, 'postable');
     }
-    
+
     public function topic()
     {
         return $this->belongsTo(Topic::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

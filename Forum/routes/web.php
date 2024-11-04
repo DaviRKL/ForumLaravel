@@ -8,6 +8,7 @@ use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', [Controller::class, 'welcome'])->name('welcome');
 
@@ -53,7 +54,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/categories/{id}/delete', [CategoryController::class, 'deleteCategory'])->name('deleteCategory');
 
     // Comments
-    Route::match(['get', 'post'], '/comments/create', [CommentController::class, 'createComment'])->name('createComment');
+    Route::match(['get', 'post'], '/comments/create/{topicId}', [CommentController::class, 'createComment'])->name('createComment');
     Route::get('/comments', [CommentController::class, 'listAllComments'])->name('listAllComments');
     Route::get('/comments/{id}', [CommentController::class, 'viewComment'])->name('viewComment');
     Route::put('/comments/{id}/update', [CommentController::class, 'updateComment'])->name('updateComment');

@@ -43,15 +43,14 @@ class TopicController extends Controller
                 'user_id' => Auth::id(),
                 'image' => $request->image
             ]);
-
-            return redirect()->route('welcome');
+            return redirect()->route('listAllTopics')->with('message-sucess', 'Tópico criado com sucesso ');
         }
     }
 
 
     public function listTopicById(Request $request, $id) {
          $topic = Topic::where('id', $id)->first();
-         return view('topics.view_topic', ['topic' => $topic]);
+         return view('topics.viewTopic', ['topic' => $topic]);
     }
 
     public function UpdateTopic(Request $request, $id) {
@@ -65,6 +64,6 @@ class TopicController extends Controller
 
     public function deleteTopic(Request $request, $id) {
         $topic = Topic::where('id', $id)->delete();
-        return redirect()->route('topics.view_topic');
+        return redirect()->route('topics.viewTopic');
     }
 }

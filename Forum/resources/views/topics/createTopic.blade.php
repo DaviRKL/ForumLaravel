@@ -11,8 +11,9 @@
             <input type="text" id="title" name="title" class="form-input" value="{{ old('title') }}" required>
             @error("title") <span>{{$message}}</span> @enderror
 
+
             <label for="description" class="form-label">Descrição do Topico:</label>
-            <input type="text" id="description" name="description" class="form-input" value="{{ old('description') }}" required>
+            <textarea type="text" id="description" name="description" class="form-input" value="{{ old('description') }}" required></textarea>
             @error("description") <span>{{$message}}</span> @enderror
 
             <label for="status" class="form-label">Status do Topico:</label>

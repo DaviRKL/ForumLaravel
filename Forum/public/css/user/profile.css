@@ -1,47 +1,33 @@
 :root {
     --masterball-purple-dark: #4F2C83;
     --masterball-purple-light: #9B6BCC;
+    --background-light: #F9F9F9;
+    --text-color-dark: #333;
+    --text-muted: #6C757D;
 }
-
 
 .profile-container {
     padding: 2rem;
     border-radius: 10px;
-    max-width: 450px;
+    max-width: 1200px; /* Aumenta a largura máxima para acomodar os três elementos */
     width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    display: flex; /* Define o layout como flexbox */
+    flex-direction: row; /* Coloca os elementos em linha */
+    justify-content: space-between; /* Adiciona espaçamento entre os elementos */
+    align-items: flex-start; /* Alinha os elementos ao topo */
     margin: 0 auto; /* Centraliza horizontalmente */
-    
+    gap: 2rem; /* Espaçamento entre os elementos */
+
 }
 
-.profile-form {
-    padding: 2rem; 
-    border-radius: 10px;
-    width: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to bottom,var(--masterball-purple-dark) ,var(--masterball-purple-light) );
+
+.profile-form, .user-topics, .user-comments {
+    flex: 1; /* Faz com que cada elemento ocupe a mesma largura */
+    padding: 1.5rem; /* Adiciona espaçamento interno */
+    background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-}
-
-.profile-form .btn-edit{
-    width: 100%;
-    margin-bottom: 10px;
-}
-.profile-form .btn-danger{
-    width: 100%;
-}
-
-.signIn-title {
-    color: #FFF;
-    margin-bottom: 1.5rem;
+    label{color: var(--masterball-purple-dark);}
 }
 
 .form-group {
@@ -50,9 +36,8 @@
 }
 
 .form-label {
-    
-    margin-bottom: 0.5rem;
     display: block;
+    margin-bottom: 0.5rem;
     text-align: left;
 }
 
@@ -61,8 +46,6 @@
     padding: 0.5rem;
     border-radius: 5px;
     border: 1px solid #4A5568;
-    
-    color: #000;
 }
 
 .form-input:focus {
@@ -71,7 +54,7 @@
 }
 
 .submit-button {
-    background-color: #6B46C1; 
+    background-color: #6B46C1;
     color: #fff;
     padding: 0.75rem;
     border: none;
@@ -82,12 +65,65 @@
 }
 
 .submit-button:hover {
-    background-color:var(--masterball-purple-dark);
+    background-color: var(--masterball-purple-dark);
 }
 
-.error-message {
-    color: #E53E3E;
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-    display: block;
+.section-title {
+    color: var(--masterball-purple-dark);
+    margin-bottom: 1rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+.list-group {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    p{
+        color: var(--masterball-purple-dark);
+    }
+}
+
+h3 {
+    margin-bottom: 1rem; /* Espaçamento inferior para os títulos */
+}
+
+.list-group-item {
+    margin-bottom: 0.5rem; /* Espaçamento entre os itens da lista */
+    border: 1px solid #ddd; /* Adiciona borda ao item da lista */
+    padding: 0.75rem; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+.topic-item, .comment-item {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    color: var(--text-color-dark);
+}
+
+.topic-item a {
+    font-weight: bold;
+    color: var(--masterball-purple-dark);
+    text-decoration: none;
+}
+
+.topic-item a:hover {
+    text-decoration: underline;
+}
+
+.comment-item p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.text-muted {
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+.user-topics, .user-comments {
+    background: #fff; /* Muda a cor de fundo para branco para maior contraste */
+    color: #000; /* Ajusta a cor do texto */
 }

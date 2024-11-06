@@ -2,46 +2,44 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+
     <div class="profile-container">
         @if ($user != null)
-            <form action="{{ route('updateUser', [$user->id]) }}" method="POST" class="profile-form">
-                <h2 class="text-center">Perfil</h2>
-                @csrf
-                @method('put')
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nome:</label>
-                    <input type="text" id="name" name="name" class="form-control" value="{{ $user->name }}"
-                        placeholder="{{ $user->name }}" required>
-                    @error('name')
-                        <span>{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email:</label>
-                    <input type="email" id="email" name="email" class="form-control" value="{{ $user->email }}"
-                        placeholder="{{ $user->email }}" required>
-                    @error('email')
-                        <span>{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="mb-3">
-                    <label for="password" class="form-label">Senha:</label>
-                    <input type="password" id="password" name="password"
-                       class="form-control">
-                    @error('password')
-                        <span>{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="row">
-                    <input type="submit" class="btn btn-edit" value="Editar">
+            <!-- Seção de Perfil -->
+            <div class="profile-form  mt-5">
+                <h2 class="section-title">Perfil</h2>
+                <form action="{{ route('updateUser', [$user->id]) }}" method="POST">
+                    @csrf
+                    @method('put')
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nome:</label>
+                        <input type="text" id="name" name="name" class="form-input" value="{{ $user->name }}" required>
+                        @error('name')
+                            <span class="error-message">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" id="email" name="email" class="form-input" value="{{ $user->email }}" required>
+                        @error('email')
+                            <span class="error-message">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Senha:</label>
+                        <input type="password" id="password" name="password" class="form-input">
+                        @error('password')
+                            <span class="error-message">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="submit-button" value="Editar">
+                    </div>
                     <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal">
                         <i class="fa-solid fa-ban"></i> Excluir perfil
                     </a>
-                </div>
-            </form>
+                </form>
+            </div>
 
             <!-- Modal de confirmação -->
             <div class="modal fade" id="banModal" tabindex="-1" aria-labelledby="banModalLabel" aria-hidden="true">
@@ -70,15 +68,15 @@
                 </div>
             </div>
 
-            <!-- Listagem de Tópicos do Usuário -->
-            <div class="user-topics mt-5">
-                <h3>Tópicos Criados por {{ $user->name }}</h3>
+            <!-- Seção de Tópicos -->
+            <div class="user-topics  mt-5">
+                <h3 class="section-title">Meus Tópicos</h3>
                 @if ($topics->isEmpty())
                     <p>Este usuário ainda não criou nenhum tópico.</p>
                 @else
                     <ul class="list-group">
                         @foreach ($topics as $topic)
-                            <li class="list-group-item">
+                            <li class="list-group-item topic-item">
                                 <a href="">
                                     {{ $topic->title }}
                                 </a>
@@ -91,15 +89,15 @@
                 @endif
             </div>
 
-            <!-- Listagem de Comentários do Usuário -->
+            <!-- Seção de Comentários -->
             <div class="user-comments mt-5">
-                <h3>Comentários de {{ $user->name }}</h3>
+                <h3 class="section-title">Meus comentários</h3>
                 @if ($comments->isEmpty())
                     <p>Este usuário ainda não fez nenhum comentário.</p>
                 @else
                     <ul class="list-group">
                         @foreach ($comments as $comment)
-                            <li class="list-group-item">
+                            <li class="list-group-item comment-item">
                                 <p>{{ $comment->content }}</p>
                                 <small class="text-muted">
                                     Comentado em: {{ $comment->created_at->diffForHumans() }}

@@ -1,21 +1,38 @@
 @extends('layouts.header_footer')
 
 @section('content')
-<div class="container mx-auto py-8">
-    <h1 class="text-3xl font-bold mb-4">{{ $topic->title }}</h1>
-    <p class="text-lg mb-6">{{ $topic->content }}</p>
+<div class="container custom-container mt-5 mb-5">
+    <h1 class="title">{{ $topic->title }}</h1>
+    <p class="description">{{ $topic->description }}</p>
 
-    <div class="mb-6">
-        <h2 class="text-2xl font-semibold">Comentários</h2>
+    <div class="comments-section">
+        <h2 class="subtitle">Comentários</h2>
         @if($topic->comments->isEmpty())
-            <p class="text-gray-500">Não há comentários ainda.</p>
+            <p class="no-comments">Não há comentários ainda.</p>
         @else
-            <ul class="space-y-4">
+            <ul class="comments-list">
                 @foreach($topic->comments as $comment)
-                    <li class="p-4 border rounded shadow-sm">
-                        <p><strong>{{  $comment->post->user->name ?? 'Usuário desconhecido' }}</strong> disse:</p>
+                    <li class="comment-item" id="comment-{{ $comment->id }}">
+                        <p><strong>{{ $comment->post->user->name ?? 'Usuário desconhecido' }}</strong> disse:</p>
                         <p>{{ $comment->content }}</p>
-                        <p class="text-sm text-gray-500">{{ $comment->created_at->diffForHumans() }}</p>
+                        <p class="comment-time">{{ $comment->created_at->diffForHumans() }}</p>
+
+                        <!-- Botão de resposta -->
+                        <button class="btn btn-link reply-btn" data-comment-id="{{ $comment->id }}">
+                            Responder
+                        </button>
+
+                        <!-- Formulário de resposta (inicialmente escondido) -->
+                        <div class="reply-form" id="reply-form-{{ $comment->id }}" style="display: none; margin-top: 10px;">
+                            <form action="{{ route('createComment', ['topicId' => $topic->id]) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="parent_comment_id" value="{{ $comment->id }}">
+                                <div class="form-group">
+                                    <textarea name="content" class="form-control" rows="2" placeholder="Adicionar uma resposta" required></textarea>
+                                </div>
+                                <button type="submit" class="submit-btn">Responder</button>
+                            </form>
+                        </div>
                     </li>
                 @endforeach
             </ul>
@@ -23,28 +40,46 @@
     </div>
 
     @if(auth()->check())
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">Adicionar um Comentário</h2>
-            <form action="{{ route('createComment', ['topicId' => $topic->id]) }}" method="POST" class="mt-3">
+        <div class="add-comment-section">
+            <h2 class="subtitle">Adicionar um Comentário</h2>
+            <form action="{{ route('createComment', ['topicId' => $topic->id]) }}" method="POST" class="comment-form">
                 @csrf
                 <div class="form-group">
                     <textarea name="content" class="form-control" rows="2" placeholder="Adicionar um comentário" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-success mt-2">Comentar</button>
+                <button type="submit" class="submit-btn">Comentar</button>
             </form>
         </div>
     @endif
 
+
     @if(auth()->check() && auth()->user()->id === $topic->user_id)
-        <div class="mb-6">
-            <h2 class="text-2xl font-semibold">Ações</h2>
-            <a href="{{ route('topics.edit', $topic->id) }}" class="bg-yellow-500 text-white px-4 py-2 rounded">Editar Tópico</a>
-            <form action="{{ route('topics.destroy', $topic->id) }}" method="POST" class="inline-block">
+        <div class="actions-section">
+            <h2 class="subtitle">Ações</h2>
+            <a href="{{ route('topics.edit', $topic->id) }}" class="edit-btn">Editar Tópico</a>
+            <form action="{{ route('topics.destroy', $topic->id) }}" method="POST" class="delete-form">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Deletar Tópico</button>
+                <button type="submit" class="delete-btn">Deletar Tópico</button>
             </form>
         </div>
     @endif
 </div>
+
+<script>
+    document.querySelectorAll('.reply-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const commentId = this.getAttribute('data-comment-id');
+            const replyForm = document.getElementById(`reply-form-${commentId}`);
+
+            // Toggle visibilidade do formulário de resposta
+            if (replyForm.style.display === 'none') {
+                replyForm.style.display = 'block';
+            } else {
+                replyForm.style.display = 'none';
+            }
+        });
+    });
+</script>
+
 @endsection

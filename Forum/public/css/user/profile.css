@@ -64,6 +64,10 @@
     width: 100%;
 }
 
+.delete-profile{
+    width: 100%;
+}
+
 .submit-button:hover {
     background-color: var(--masterball-purple-dark);
 }

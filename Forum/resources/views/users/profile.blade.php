@@ -35,9 +35,12 @@
                     <div class="form-group">
                         <input type="submit" class="submit-button" value="Editar">
                     </div>
-                    <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal">
-                        <i class="fa-solid fa-ban"></i> Excluir perfil
-                    </a>
+                    <div class="form-group">
+                        <a class="btn btn-danger delete-profile" data-bs-toggle="modal" data-bs-target="#banModal">
+                            <i class="fa-solid fa-ban"></i> Excluir perfil
+                        </a>
+                    </div>
+
                 </form>
             </div>
 

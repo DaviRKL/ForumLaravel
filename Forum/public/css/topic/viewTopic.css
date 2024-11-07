@@ -1,3 +1,125 @@
-.btn-edit-topico{
-    margin-bottom: 10px;
+/* Container */
+.custom-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1; /* Faz com que cada elemento ocupe a mesma largura */
+    padding: 1.5rem; /* Adiciona espaçamento interno */
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    p,h2{color: var(--masterball-purple-dark);}
+
+}
+
+/* Titles and subtitles */
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+/* Description */
+.description {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-bottom: 2rem;
+}
+
+.no-comments {
+    color: #6b7280; /* Gray color */
+}
+
+.comments-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-item {
+    padding: 1rem;
+    border: 1px solid #e2e8f0; /* Light gray border */
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.comment-time {
+    font-size: 0.875rem;
+    color: #6b7280; /* Gray color */
+}
+
+/* Add Comment Section */
+.add-comment-section {
+    margin-bottom: 2rem;
+}
+
+.comment-form {
+    margin-top: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #cbd5e0; /* Gray border */
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background-color: var(--masterball-purple-dark); /* Green color */
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    opacity: 0.7;
+}
+
+/* Actions Section */
+.actions-section {
+    margin-bottom: 2rem;
+}
+
+.edit-btn {
+    background-color: #f59e0b; /* Yellow color */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.delete-btn {
+    background-color: #ef4444; /* Red color */
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #b91c1c; /* Darker red */
 }

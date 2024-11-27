@@ -8,7 +8,8 @@
             <!-- Seção de Perfil -->
             <div class="profile-form  mt-5">
                 <h2 class="section-title">Perfil</h2>
-                <form action="{{ route('updateUser', [$user->id]) }}" method="POST">
+                <img class="picture" src="/storage/{{$user->photo}}">
+                <form action="{{ route('updateUser', [$user->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group">
@@ -25,10 +26,18 @@
                             <span class="error-message">{{ $message }}</span>
                         @enderror
                     </div>
+                     
                     <div class="form-group">
                         <label for="password" class="form-label">Senha:</label>
                         <input type="password" id="password" name="password" class="form-input">
                         @error('password')
+                            <span class="error-message">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="photo" class="form-label">Senha:</label>
+                        <input type="file" id="photo" name="photo" class="form-input">
+                        @error('photo')
                             <span class="error-message">{{ $message }}</span>
                         @enderror
                     </div>

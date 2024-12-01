@@ -20,6 +20,18 @@
 
 }
 
+.picture {
+    display: block; /* Torna o elemento do tipo bloco para aplicar margin */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    width: 150px; /* Define um tamanho fixo */
+    height: 150px; /* Mantém o aspecto quadrado */
+    border-radius: 50%; /* Torna a imagem circular */
+    object-fit: cover; /* Garante que a imagem se ajuste ao contêiner sem distorções */
+    border: 3px solid #4F2C83; /* Adiciona uma borda azul */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aplica uma leve sombra */
+}
+
+
 
 .profile-form, .user-topics, .user-comments {
     flex: 1; /* Faz com que cada elemento ocupe a mesma largura */

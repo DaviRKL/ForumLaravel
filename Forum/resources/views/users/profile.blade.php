@@ -8,7 +8,8 @@
             <!-- Seção de Perfil -->
             <div class="profile-form  mt-5">
                 <h2 class="section-title">Perfil</h2>
-                <img class="picture" src="/storage/{{$user->photo}}">
+                <img class="picture" src="{{ asset('storage/' . $user->photo) }}" alt="Foto de perfil">
+
                 <form action="{{ route('updateUser', [$user->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
@@ -26,7 +27,7 @@
                             <span class="error-message">{{ $message }}</span>
                         @enderror
                     </div>
-                     
+
                     <div class="form-group">
                         <label for="password" class="form-label">Senha:</label>
                         <input type="password" id="password" name="password" class="form-input">

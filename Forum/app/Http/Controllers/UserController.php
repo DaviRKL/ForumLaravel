@@ -39,7 +39,7 @@ public function register(Request $request) {
             'password' => 'required|string|min:8',
             'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-       
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -57,13 +57,13 @@ public function register(Request $request) {
     public function UpdateUser(Request $request, $id) {
         $user = User::where('id', $id)->first();
         $imagePath = $request->file('photo')->store("images", "public");
+        $user->photo = $imagePath;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->photo = $imagePath;
         if ($request->password != ''){
             $user->password = Hash::make($request->password);
         }
-       
+
 
         $user->save();
         return redirect()->route('listUserById', [$user->id])->with('message-sucess', 'Alteração realizada com sucesso');

@@ -10,6 +10,7 @@
 @import url('./user/profile.css');
 @import url('./tag/viewTag.css');
 @import url('./topic/viewTopic.css');
+@import url('./topic/createTopic.css');
 
 :root {
   --masterball-purple-dark: #4F2C83;

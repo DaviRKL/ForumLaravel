@@ -2,10 +2,46 @@
 
 @section('content')
 <div class="container custom-container mt-5 mb-5">
-    <h1 class="title">{{ $topic->title }}</h1>
-    <p class="description">{{ $topic->description }}</p>
+    <div class="d-flex justify-content-between align-items-center">
+        <!-- Título centralizado -->
+        <div class="flex-grow-1 text-center">
+            <h1 class="title m-0">{{ $topic->title }}</h1>
+        </div>
+    </div>
 
-    <div class="comments-section">
+
+
+    <!-- Ações para o autor do tópico -->
+    @if(auth()->check() && auth()->user()->id === $topic->post->user_id)
+        <div class="actions-section mt-4">
+
+            <a href="{{ route('updateTopic', $topic->id) }}" class="btn btn-warning btn-sm">
+                Editar
+            </a>
+
+            <!-- Botão de Exclusão com Modal -->
+            <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $topic->id }}">
+                Excluir
+            </button>
+        </div>
+    @endif
+
+    <!-- Linha separadora roxa -->
+    <hr class="mt-4 mb-4" style="border-top: 2px solid purple;">
+
+    <!-- Exibição da imagem do tópico -->
+    @if($topic->post->image ?? false)
+        <div class="topic-image-container mt-4">
+            <img src="{{ asset('storage/' . $topic->post->image) }}" alt="Imagem do Tópico" class="topic-image">
+        </div>
+    @endif
+
+    <p class="description mt-4">{{ $topic->description }}</p>
+
+    <!-- Linha separadora roxa -->
+    <hr class="mt-4 mb-4" style="border-top: 2px solid purple;">
+
+    <div class="comments-section mt-5">
         <h2 class="subtitle">Comentários</h2>
         @if($topic->comments->isEmpty())
             <p class="no-comments">Não há comentários ainda.</p>
@@ -39,8 +75,12 @@
         @endif
     </div>
 
+    <!-- Linha separadora roxa -->
+    <hr class="mt-4 mb-4" style="border-top: 2px solid purple;">
+
+    <!-- Formulário para adicionar um comentário -->
     @if(auth()->check())
-        <div class="add-comment-section">
+        <div class="add-comment-section mt-5">
             <h2 class="subtitle">Adicionar um Comentário</h2>
             <form action="{{ route('createComment', ['topicId' => $topic->id]) }}" method="POST" class="comment-form">
                 @csrf
@@ -51,20 +91,32 @@
             </form>
         </div>
     @endif
-
-
-    @if(auth()->check() && auth()->user()->id === $topic->user_id)
-        <div class="actions-section">
-            <h2 class="subtitle">Ações</h2>
-            <a href="{{ route('topics.edit', $topic->id) }}" class="edit-btn">Editar Tópico</a>
-            <form action="{{ route('topics.destroy', $topic->id) }}" method="POST" class="delete-form">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="delete-btn">Deletar Tópico</button>
-            </form>
-        </div>
-    @endif
 </div>
+
+<!-- Modal de Exclusão -->
+@if(auth()->check() && auth()->user()->id === $topic->post->user_id)
+<div class="modal fade" id="deleteModal-{{ $topic->id }}" tabindex="-1" aria-labelledby="deleteModalLabel-{{ $topic->id }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel-{{ $topic->id }}">Confirmar Exclusão</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Tem certeza de que deseja excluir o tópico "<strong>{{ $topic->title }}</strong>"? Esta ação não pode ser desfeita.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <form action="{{ route('deleteTopic', $topic->id) }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 
 <script>
     document.querySelectorAll('.reply-btn').forEach(button => {
@@ -81,5 +133,4 @@
         });
     });
 </script>
-
 @endsection

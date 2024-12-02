@@ -17,7 +17,7 @@ Route::match(['get', 'post'], '/register', [UserController::class, 'register'])-
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
-Route::get('/topics/{id}', [TopicController::class, 'listTopicById'])->name('listTopicById');
+
 
 Route::get('/tags', [TagController::class, 'listAllTags'])->name('listAllTags');
 
@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
 
     // Topics
     Route::match(['get', 'post'], '/topics/createTopic', [TopicController::class, 'createTopic'])->name('createTopic');
-    Route::put('/topics/{id}/update', [TopicController::class, 'updateTopic'])->name('updateTopic');
+    Route::match(['get', 'put'], '/topics/{id}/update', [TopicController::class, 'updateTopic'])->name('updateTopic');
     Route::delete('/topics/{id}/delete', [TopicController::class, 'deleteTopic'])->name('deleteTopic');
 
     // Tags
@@ -62,3 +62,5 @@ Route::middleware('auth')->group(function () {
     Route::put('/comments/{id}/update', [CommentController::class, 'updateComment'])->name('updateComment');
     Route::delete('/comments/{id}/delete', [CommentController::class, 'deleteComment'])->name('deleteComment');
 });
+
+Route::get('/topics/{id}', [TopicController::class, 'listTopicById'])->name('listTopicById');

@@ -6,9 +6,11 @@
     <div class="profile-container">
         @if ($user != null)
             <!-- Seção de Perfil -->
-            <div class="profile-form  mt-5">
+            <div class="profile-form mt-5">
                 <h2 class="section-title">Perfil</h2>
-                <img class="picture" src="{{ asset('storage/' . $user->photo) }}" alt="Foto de perfil">
+                <img class="picture"
+                    src="{{ $user->photo ? asset('storage/' . $user->photo) : asset('storage/images/profilepic.png') }}"
+                    alt="Foto de perfil">
 
                 <form action="{{ route('updateUser', [$user->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -36,7 +38,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="photo" class="form-label">Senha:</label>
+                        <label for="photo" class="form-label">Foto:</label>
                         <input type="file" id="photo" name="photo" class="form-input">
                         @error('photo')
                             <span class="error-message">{{ $message }}</span>
@@ -50,7 +52,6 @@
                             <i class="fa-solid fa-ban"></i> Excluir perfil
                         </a>
                     </div>
-
                 </form>
             </div>
 
@@ -82,20 +83,34 @@
             </div>
 
             <!-- Seção de Tópicos -->
-            <div class="user-topics  mt-5">
+            <div class="user-topics mt-5">
                 <h3 class="section-title">Meus Tópicos</h3>
                 @if ($topics->isEmpty())
                     <p>Este usuário ainda não criou nenhum tópico.</p>
                 @else
                     <ul class="list-group">
                         @foreach ($topics as $topic)
-                            <li class="list-group-item topic-item">
-                                <a href="">
-                                    {{ $topic->title }}
-                                </a>
-                                <span class="text-muted">
-                                    (Criado {{ $topic->created_at->diffForHumans() }})
-                                </span>
+                            <li class="list-group-item topic-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <a href="{{ route('listTopicById', $topic->id) }}">
+                                        {{ $topic->title }}
+                                    </a>
+                                    <span class="text-muted">
+                                        (Criado {{ $topic->created_at->diffForHumans() }})
+                                    </span>
+                                </div>
+                                <div>
+                                    <a href="{{ route('updateTopic', $topic->id) }}" class="btn btn-sm btn-primary">
+                                        <i class="fa-solid fa-pen"></i> Editar
+                                    </a>
+                                    <form action="{{ route('deleteTopic', $topic->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-sm btn-danger">
+                                            <i class="fa-solid fa-trash"></i> Deletar
+                                        </button>
+                                    </form>
+                                </div>
                             </li>
                         @endforeach
                     </ul>
@@ -110,11 +125,25 @@
                 @else
                     <ul class="list-group">
                         @foreach ($comments as $comment)
-                            <li class="list-group-item comment-item">
-                                <p>{{ $comment->content }}</p>
-                                <small class="text-muted">
-                                    Comentado em: {{ $comment->created_at->diffForHumans() }}
-                                </small>
+                            <li class="list-group-item comment-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p>{{ $comment->content }}</p>
+                                    <small class="text-muted">
+                                        Comentado em: {{ $comment->created_at->diffForHumans() }}
+                                    </small>
+                                </div>
+                                <div>
+                                    <a href="{{ route('updateComment', $comment->id) }}" class="btn btn-sm btn-primary">
+                                        <i class="fa-solid fa-pen"></i> Editar
+                                    </a>
+                                    <form action="{{ route('deleteComment', $comment->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-sm btn-danger">
+                                            <i class="fa-solid fa-trash"></i> Deletar
+                                        </button>
+                                    </form>
+                                </div>
                             </li>
                         @endforeach
                     </ul>

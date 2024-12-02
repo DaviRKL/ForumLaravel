@@ -1,0 +1,78 @@
+/* Estilo do container principal */
+.create-post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Cor de fundo neutra */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Título do formulário */
+.create-post-title {
+    text-align: center;
+    color: #343a40; /* Texto escuro */
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Estilos gerais dos campos */
+.create-post-form .form-group {
+    margin-bottom: 15px;
+}
+
+.create-post-form .form-label {
+    display: block;
+    font-weight: 600;
+    color: #495057; /* Texto médio */
+    margin-bottom: 5px;
+}
+
+.create-post-form .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+.create-post-form .form-input:focus {
+    border-color: #6c757d;
+    outline: none;
+    box-shadow: 0 0 3px rgba(108, 117, 125, 0.5);
+}
+
+/* Botão de envio */
+.create-post-form .submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffc107; /* Amarelo */
+    color: #212529; /* Texto escuro */
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.create-post-form .submit-button:hover {
+    background-color: #e0a800; /* Amarelo escuro */
+}
+
+/* Feedback de erro */
+.create-post-form .error-message {
+    color: #dc3545; /* Vermelho */
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Espaçamento entre os elementos */
+.create-post-form select,
+.create-post-form textarea,
+.create-post-form input[type="file"] {
+    margin-top: 10px;
+}

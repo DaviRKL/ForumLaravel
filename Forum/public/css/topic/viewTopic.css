@@ -12,7 +12,10 @@
 
 }
 
-/* Titles and subtitles */
+label{
+    color: var(--masterball-purple-dark);
+}
+
 .title {
     font-size: 2rem;
     font-weight: bold;
@@ -37,7 +40,7 @@
 }
 
 .no-comments {
-    color: #6b7280; /* Gray color */
+    color: #6b7280;
 }
 
 .comments-list {
@@ -48,7 +51,7 @@
 
 .comment-item {
     padding: 1rem;
-    border: 1px solid #e2e8f0; /* Light gray border */
+    border: 1px solid #e2e8f0;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 1rem;
@@ -56,10 +59,9 @@
 
 .comment-time {
     font-size: 0.875rem;
-    color: #6b7280; /* Gray color */
+    color: #6b7280;
 }
 
-/* Add Comment Section */
 .add-comment-section {
     margin-bottom: 2rem;
 }
@@ -76,12 +78,12 @@
     width: 100%;
     padding: 0.5rem;
     border-radius: 4px;
-    border: 1px solid #cbd5e0; /* Gray border */
+    border: 1px solid #cbd5e0;
     font-size: 1rem;
 }
 
 .submit-btn {
-    background-color: var(--masterball-purple-dark); /* Green color */
+    background-color: var(--masterball-purple-dark);
     color: white;
     padding: 0.5rem 1rem;
     border: none;
@@ -99,7 +101,7 @@
 }
 
 .edit-btn {
-    background-color: #f59e0b; /* Yellow color */
+    background-color: #f59e0b;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -112,7 +114,7 @@
 }
 
 .delete-btn {
-    background-color: #ef4444; /* Red color */
+    background-color: #ef4444;
     color: white;
     padding: 0.5rem 1rem;
     border: none;
@@ -121,5 +123,17 @@
 }
 
 .delete-btn:hover {
-    background-color: #b91c1c; /* Darker red */
+    background-color: #b91c1c;
+}
+
+.topic-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.topic-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

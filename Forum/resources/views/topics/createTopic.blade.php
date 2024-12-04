@@ -11,7 +11,7 @@
             <label for="title">Título</label>
             <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" required>
             @error('title')
-                <span class="text-danger">{{ $message }}</span>
+            <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
 
@@ -19,7 +19,7 @@
             <label for="description">Descrição</label>
             <textarea name="description" id="description" class="form-control" rows="4" required>{{ old('description') }}</textarea>
             @error('description')
-                <span class="text-danger">{{ $message }}</span>
+            <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
 
@@ -30,7 +30,7 @@
                 <option value="0" {{ old('status') == 0 ? 'selected' : '' }}>Inativo</option>
             </select>
             @error('status')
-                <span class="text-danger">{{ $message }}</span>
+            <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
 
@@ -39,21 +39,27 @@
             <select name="category_id" id="category_id" class="form-control" required>
                 <option value="">Selecione uma categoria</option>
                 @foreach($categories as $category)
-                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
-                        {{ $category->title }}
-                    </option>
+                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                    {{ $category->title }}
+                </option>
                 @endforeach
             </select>
             @error('category_id')
-                <span class="text-danger">{{ $message }}</span>
+            <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
+
+        <select name="tags[]" multiple class="form-control">
+            @foreach ($tags as $tag)
+            <option value="{{ $tag->id }}">{{ $tag->title }}</option>
+            @endforeach
+        </select>
 
         <div class="form-group mt-3">
             <label for="photo">Imagem</label>
             <input type="file" name="photo" id="photo" class="form-control">
             @error('photo')
-                <span class="text-danger">{{ $message }}</span>
+            <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
         <input type="submit" class="submit-button" value="Criar Tópico">

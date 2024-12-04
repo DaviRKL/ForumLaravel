@@ -5,6 +5,7 @@ use App\Http\Controllers\Post;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Topic;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,14 +21,16 @@ class TopicController extends Controller
     {
         if ($request->isMethod('GET')) {
             $categories = Category::all();
-            return view('topics.createTopic', ['categories' => $categories]);
+            $tags = Tag::all();
+            return view('topics.createTopic', ['categories' => $categories, 'tags' => $tags]);
         } else {
             $request->validate([
                 'title' => 'required|string|max:255',
                 'description' => 'required|string',
                 'status' => 'required|int',
                 'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-                'category_id' => 'required|exists:categories,id' // Verifica se a categoria existe
+                'category_id' => 'required|exists:categories,id', // Verifica se a categoria existe
+                'tags' => 'nullable|array',
             ]);
             // if ($request->hasFile('photo')) {
             //     $imagePath = $request->file('photo')->store("images", "public");
@@ -48,6 +51,10 @@ class TopicController extends Controller
                 'user_id' => Auth::id(),
                 'image' => $imagePath ?? "/images/TopicoSemFoto.png"
             ]);
+
+            if ($request->has('tags')) {
+                $topic->tags()->sync($request->tags);
+            }
 
             if (!$post) {
                 return redirect()->back()->withErrors('Erro ao criar o post associado ao tópico.');

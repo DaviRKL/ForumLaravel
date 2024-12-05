@@ -2,23 +2,33 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-<div class="login-container">
-    <form action="{{ route('login')}}" method="POST" class="login-form">
-        <h2 class="login-title">Bem vindo de volta!</h2>
-        @csrf
-        <div class="form-group">
-            <label for="email" class="form-label">Email:</label>
-            <input type="email" id="email" name="email" class="form-input" value="{{ old('email') }}" required>
-            @error('email') <span class="error-message">{{$message}}</span> @enderror
-        </div>
-    
-        <div class="form-group">
-            <label for="password" class="form-label">Senha:</label>
-            <input type="password" id="password" name="password" class="form-input">
-            @error('password') <span class="error-message">{{$message}}</span> @enderror
-        </div>
-    
-        <input type="submit" class="submit-button" value="Enviar">
-    </form>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%; border-radius: 12px;">
+        <h2 class="text-center mb-4" style="color: #563d7c;">Bem-vindo de volta!</h2>
+        <form action="{{ route('login') }}" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="email" class="form-label fw-bold" style="color: #563d7c;">Email:</label>
+                <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
+                @error('email')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label fw-bold" style="color: #563d7c;">Senha:</label>
+                <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" required>
+                @error('password')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary" style="background: linear-gradient(90deg, #6f42c1, #6610f2); border: none;">Entrar</button>
+            </div>
+        </form>
+        {{-- <div class="mt-3 text-center">
+            <a href="#" class="text-decoration-none" style="color: #563d7c;">Esqueceu sua senha?</a>
+        </div> --}}
+    </div>
 </div>
 @endsection

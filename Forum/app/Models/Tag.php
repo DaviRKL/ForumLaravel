@@ -15,6 +15,7 @@ class Tag extends Model
 
     public function topics()
     {
-        return $this->belongsToMany(topic::class, 'topic_tag');
+        return $this->belongsToMany(topic::class, 'topic_tags', 'tag_id', 'topic_id');
+
     }
 }

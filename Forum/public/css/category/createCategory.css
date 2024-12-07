@@ -1,0 +1,81 @@
+/* Estilização para o Formulário de Criação de Categoria */
+.create-category-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.create-category-form {
+    background: linear-gradient(135deg, #6f42c1, #a569bd);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+.create-category-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group label{
+    color: white;
+}
+.form-input:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(111, 66, 193, 0.5);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #fff;
+    color: #6f42c1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #6f42c1;
+    color: #fff;
+    box-shadow: 0px 4px 8px rgba(111, 66, 193, 0.5);
+}
+
+.error-message {
+    color: #ffbaba;
+    font-size: 14px;
+    margin-top: -8px;
+    display: block;
+}

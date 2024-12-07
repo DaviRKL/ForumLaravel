@@ -1,0 +1,79 @@
+.create-tag-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #ffffff; /* Fundo branco */
+    padding: 20px;
+}
+
+.create-tag-form {
+    background-color: #ffffff; /* Fundo branco */
+    color: #6f42c1; /* Texto roxo */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+.create-tag-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #6f42c1; /* Título roxo */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #6f42c1; /* Cor roxa para o texto do rótulo */
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #6f42c1; /* Borda roxa */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(111, 66, 193, 0.5);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #6f42c1; /* Botão roxo */
+    color: #fff; /* Texto branco no botão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #a569bd; /* Cor de fundo do botão quando passa o mouse */
+    color: #fff;
+    box-shadow: 0px 4px 8px rgba(111, 66, 193, 0.5);
+}
+
+.error-message {
+    color: #ffbaba;
+    font-size: 14px;
+    margin-top: -8px;
+    display: block;
+}

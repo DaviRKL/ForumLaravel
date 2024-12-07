@@ -14,7 +14,7 @@
                 @enderror
             </div>
 
-            
+
             <div class="row">
                 <button type="submit" class="btn btn-edit btn-edit-tag"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
                 <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#banModal"><i class="fa-solid fa-trash-can"></i>

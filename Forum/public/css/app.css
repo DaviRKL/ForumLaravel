@@ -11,6 +11,10 @@
 @import url('./tag/viewTag.css');
 @import url('./topic/viewTopic.css');
 @import url('./topic/createTopic.css');
+@import url('./category/createCategory.css');
+@import url('./category/allCategories.css');
+@import url('./tag/allTags.css');
+@import url('./tag/createTag.css');
 
 :root {
   --masterball-purple-dark: #4F2C83;

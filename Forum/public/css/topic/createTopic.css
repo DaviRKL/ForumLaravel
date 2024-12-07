@@ -17,10 +17,21 @@
     margin-bottom: 20px;
     font-weight: bold;
 }
+.form-group .inputTitle{
+    color: #212529;
+}
 
 /* Estilos gerais dos campos */
 .create-post-form .form-group {
     margin-bottom: 15px;
+}
+
+.form-check .form-check-label {
+    color: black;
+}
+
+.form-check-input {
+    margin-right: 10px;
 }
 
 .create-post-form .form-label {

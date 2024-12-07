@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('topic_tags', function (Blueprint $table) {
             $table->unsignedBigInteger('tag_id');
-          
             $table->foreign('tag_id')->references('id')->on('tags');
             $table->unsignedBigInteger('topic_id');
             $table->foreign('topic_id')->references('id')->on('topics');
-
+            $table->primary(['tag_id', 'topic_id']);
         });
     }
 
